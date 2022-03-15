@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas 教程之 fill 与 stroke的区别</title>
+    </head>
+    <body>
+        <p>fill与stroke的区别：fill是填充，stroke是描边</p>
+        <p>
+            fillStyle是设置填充的颜色，渐变，strokeStyle是设置描边的颜色，渐变
+        </p>
+        <p>fillText, strokeText分别是设置需要填充的文字和需要描边的文字</p>
+        <pre>
+            let canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            ctx.font = "24px Arial";
+            ctx.fillStyle = "red"; // 填充canvas的颜色
+            ctx.strokeStyle = "blue"; // 笔触的颜色
+            ctx.fillText(
+                "hello word",
+                canvas.width / 2 - 150,
+                canvas.height / 2 + 15
+            );
+            ctx.strokeText(
+                "hello word",
+                canvas.width / 2 - 100,
+                canvas.height / 2
+            );
+        </pre>
+        <canvas id="canvas"></canvas>
+        <script>
+            let canvas = document.getElementById("canvas");
+            ctx = canvas.getContext("2d");
+            ctx.font = "24px Arial";
+            ctx.fillStyle = "red"; // 填充canvas的颜色
+            ctx.strokeStyle = "blue"; // 笔触的颜色
+            ctx.fillText(
+                "hello word",
+                canvas.width / 2 - 150,
+                canvas.height / 2 + 15
+            );
+            ctx.strokeText(
+                "hello word",
+                canvas.width / 2 - 100,
+                canvas.height / 2
+            );
+        </script>
+    </body>
+</html>
