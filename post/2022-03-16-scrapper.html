@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>JS数据采集-将列表转换成数据</title>
+    </head>
+    <body>
+        <ul>
+            <li><a href="https://www.baidu.com">baidu</a></li>
+            <li><a href="https://www.baidu.com">google</a></li>
+            <li><a href="https://www.hao123.com">hao123</a></li>
+            <li><a href="https://www.qq.com">qq</a></li>
+        </ul>
+        <p>第一步：利用Array.from把dom选择器类数组对象转换成真正的数组</p>
+        <p>
+            第二步：利用Array.map对数组中的每一组对象进行循环处理，解析出数据，并返回一个只包含数据的新数组。
+        </p>
+        <pre>
+            function domToData() {
+                return Array.from(document.querySelectorAll("ul li")).map(
+                    (el) => {
+                        const title = el.querySelector("a").innerText;
+                        const url = el.querySelector("a").href;
+                        console.log(title, url);
+                        return { title, url };
+                    }
+                );
+            }
+            let list = domToData();
+        </pre>
+        <script>
+            function domToData() {
+                return Array.from(document.querySelectorAll("ul li")).map(
+                    (el) => {
+                        console.log("el", el);
+                        const title = el.querySelector("a").innerText;
+                        const url = el.querySelector("a").href;
+                        console.log(title, url);
+                        return { title, url };
+                    }
+                );
+            }
+            let list = domToData();
+            console.log("list", list);
+        </script>
+    </body>
+</html>
