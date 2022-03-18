@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas-绘制矩形</title>
+    </head>
+    <body>
+        <canvas id="canvas" width="600" height="600"></canvas>
+        <pre>
+            函数中的三个方法与路径绘制不同，会即时生效。
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.fillRect(100, 100, 200, 200); // 填充矩形
+                    ctx.clearRect(130, 130, 140, 140); // 清除矩形内部填充的颜色
+                    ctx.strokeRect(150, 150, 100, 100); // 框线矩形
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </pre>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.fillRect(100, 100, 200, 200);
+                    ctx.clearRect(130, 130, 140, 140);
+                    ctx.strokeRect(150, 150, 100, 100);
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </script>
+    </body>
+</html>
