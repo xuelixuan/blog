@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas-绘制路径（自定义画图方法）</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <pre>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.beginPath();// 如果fillRect方法是画出矩形，那么beginPath方法就是为了画出自定义图形。
+                    ctx.moveTo(75, 75); // 移动到某个坐标点
+                    ctx.lineTo(100, 75);// 开始画一条线
+                    ctx.lineTo(100, 25);// 画另外一条线
+                    ctx.fill();// 对画出的自定义图形进行填充
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </pre>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    ctx.moveTo(75, 75);
+                    ctx.lineTo(100, 75);
+                    ctx.lineTo(100, 25);
+                    ctx.fill();
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </script>
+    </body>
+</html>
