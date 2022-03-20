@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas的弧形之基础用法</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <pre>
+            arc 弧形方法的参数
+            弧形中心点的位置（x和y），弧形的半径radius，开始划线位置，结束划线位置，是否逆方向绘制
+
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    let radius = 20; // 圆弧的半径
+                    let startAngle = 0; // 开始点
+                    let endAngle = Math.PI / 2; // Math.PI=180°
+                    ctx.arc(
+                        canvas.width / 2,
+                        canvas.height / 2,
+                        radius,
+                        startAngle,
+                        endAngle,
+                        true // 默认false顺时针，true逆时针绘制
+                    );
+                    ctx.stroke();
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </pre>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.beginPath();
+                    let radius = 20; // 圆弧的半径
+                    let startAngle = 0; // 开始点
+                    let endAngle = Math.PI / 2;
+                    ctx.arc(
+                        canvas.width / 2,
+                        canvas.height / 2,
+                        radius,
+                        startAngle,
+                        endAngle
+                    );
+                    ctx.stroke();
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </script>
+    </body>
+</html>

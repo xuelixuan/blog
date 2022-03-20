@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -14,8 +14,8 @@
                 if (canvas.getContext("2d")) {
                     let ctx = canvas.getContext("2d");
                     ctx.beginPath();// 如果fillRect方法是画出矩形，那么beginPath方法就是为了画出自定义图形。
-                    ctx.moveTo(75, 75); // 移动到某个坐标点
-                    ctx.lineTo(100, 75);// 开始画一条线
+                    ctx.moveTo(75, 75); // 移动笔触方法，这个方法不能绘画，只能作为一种动作，可以想象成把笔尖位置移动到某个点，移动到某个坐标点
+                    ctx.lineTo(100, 75);// 绘制直线方法，开始画一条线
                     ctx.lineTo(100, 25);// 画另外一条线
                     ctx.fill();// 对画出的自定义图形进行填充
                 }
