@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas的lineWidth</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <pre>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.lineWidth = 20; // 线宽
+                    ctx.beginPath();
+                    ctx.moveTo(10, 10);
+                    ctx.lineTo(30, 30);
+                    ctx.stroke();
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </pre>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.lineWidth = 20;
+                    ctx.beginPath();
+                    ctx.moveTo(10, 10);
+                    ctx.lineTo(30, 30);
+                    ctx.stroke();
+                }
+            }
+            window.onload = function () {
+                draw();
+            };
+        </script>
+    </body>
+</html>

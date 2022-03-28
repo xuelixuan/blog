@@ -47,11 +47,11 @@
             }
             .container,
             .chart {
-                max-width: 760px;
+                max-width: 750px;
                 width: 100%;
                 margin: 0 auto;
                 display: flex;
-                justify-content: space-around;
+                justify-content: space-between;
             }
             .intro {
                 margin: 60px auto;
@@ -86,6 +86,13 @@
                 font-size: 12px;
                 text-align: center;
             }
+
+            @media screen and (max-width: 750px) {
+                .container {
+                    flex-direction: column;
+                    padding: 0 30px;
+                }
+            }
         </style>
     </head>
     <body>
@@ -114,6 +121,14 @@
             <div class="article">
                 <h3>小文章</h3>
                 <ul>
+                    <li>
+                        <em>2022-03-28</em>
+                        <a
+                            href="./post/202203/2022-03-28-canvas-line-width.html"
+                            target="_blank"
+                            >滚动相关概念offset,client,scroll梳理</a
+                        >
+                    </li>
                     <li>
                         <em>2022-03-27</em>
                         <a
