@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas绘制字体</title>
+    </head>
+    <body>
+        <canvas id="canvas"></canvas>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.font = "48px serif";
+                    ctx.fillText("Hello World", 10, 50);
+                }
+            }
+            draw();
+        </script>
+    </body>
+</html>
