@@ -1,113 +1,129 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>薛维平的个人博客</title>
-        <style>
-            * {
-                margin: 0;
-                padding: 0;
-                box-sizing: border-box;
-            }
-            body {
-                color: #c3b6a2;
-                background-color: #232b32;
-                font-family: Helvetica Neue, Helvetica, Arial, PingFang SC,
-                    Hiragino Sans GB, Microsoft YaHei, sans-serif;
-            }
-            a {
-                color: inherit;
-                text-decoration-thickness: 0.1em;
-                text-underline-offset: 0.25em;
-            }
 
-            a:hover {
-                text-decoration: underline;
-                text-decoration-thickness: 0.2em;
-                text-underline-offset: 0.25em;
-            }
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>薛维平的个人博客</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-            ul {
-                list-style-type: none;
-            }
-            ul li {
-                margin-bottom: 10px;
-            }
-            h1 {
-                font-size: 22px;
-            }
-            h2 {
-                font-size: 20px;
-                font-weight: normal;
-            }
-            h3 {
-                font-size: 18px;
-                margin-bottom: 10px;
-            }
-            .container,
-            .chart {
-                max-width: 750px;
-                width: 100%;
-                margin: 0 auto;
-                display: flex;
-                justify-content: space-between;
-            }
-            .intro {
-                margin: 60px auto;
-                max-width: 320px;
-                width: 100%;
-            }
-            .avatar {
-                text-align: center;
-                display: flex;
+        body {
+            color: #c3b6a2;
+            background-color: #232b32;
+            font-family: Helvetica Neue, Helvetica, Arial, PingFang SC,
+                Hiragino Sans GB, Microsoft YaHei, sans-serif;
+        }
+
+        a {
+            color: inherit;
+            text-decoration-thickness: 0.1em;
+            text-underline-offset: 0.25em;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            text-decoration-thickness: 0.2em;
+            text-underline-offset: 0.25em;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 22px;
+        }
+
+        h2 {
+            font-size: 20px;
+            font-weight: normal;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .container,
+        .chart {
+            max-width: 750px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .intro {
+            margin: 60px auto;
+            max-width: 320px;
+            width: 100%;
+        }
+
+        .avatar {
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .avatar strong {
+            font-size: 16px;
+        }
+
+        .avatar img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            margin-top: 20px;
+        }
+
+        .dev ul {
+            display: flex;
+            justify-content: space-aroud;
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        @media screen and (max-width: 750px) {
+            .container {
                 flex-direction: column;
-                justify-content: center;
-                align-items: center;
+                padding: 0 30px;
             }
-            .avatar strong {
-                font-size: 16px;
-            }
-            .avatar img {
-                border-radius: 50%;
-                width: 80px;
-                height: 80px;
-                margin-bottom: 20px;
-            }
-            .description {
-                margin-top: 20px;
-            }
-            .dev ul {
-                display: flex;
-                justify-content: space-aroud;
-            }
-            .footer {
-                margin-top: 40px;
-                font-size: 12px;
-                text-align: center;
-            }
+        }
+    </style>
+</head>
 
-            @media screen and (max-width: 750px) {
-                .container {
-                    flex-direction: column;
-                    padding: 0 30px;
-                }
-            }
-        </style>
-    </head>
-    <body>
-        <div class="intro">
-            <div class="avatar">
-                <img src="./avatar.jpeg" alt="" />
-                <h1>薛维平</h1>
-            </div>
-            <div class="description">
-                <h2>
-                    全栈攻城狮。个人技术栈：ctrl+c &
-                    ctrl+v。Geek、偏执狂、理想主义、精神小伙、元宝他爸。
-                </h2>
-            </div>
-            <!-- <div class="dev">
+<body>
+    <div class="intro">
+        <div class="avatar">
+            <img src="./avatar.jpeg" alt="" />
+            <h1>薛维平</h1>
+        </div>
+        <div class="description">
+            <h2>
+                全栈攻城狮。个人技术栈：ctrl+c &
+                ctrl+v。Geek、偏执狂、理想主义、精神小伙、元宝他爸。
+            </h2>
+        </div>
+        <!-- <div class="dev">
                 <ul>
                     <li>
                         <a target="_blank" href="https://github.com/xuelixuan"
@@ -116,207 +132,125 @@
                     </li>
                 </ul>
             </div> -->
+    </div>
+    <div class="container">
+        <div class="article">
+            <h3>小文章</h3>
+            <ul>
+                <li>
+                    <em>2022-04-06</em>
+                    <a href="./post/202204/H5与IOS和Android交互.html" target="_blank">[工作日记]H5与IOS和Android交互</a>
+                </li>
+                <li>
+                    <em>2022-04-05</em>
+                    <a href="./post/202204/2020-04-05-canvas绘制字体.html" target="_blank">canvas 绘制字体</a>
+                </li>
+                <li>
+                    <em>2022-04-04</em>
+                    <a href="./post/202204/2020-04-04-flutter 安装与配置mac os.html" target="_blank">flutter 安装与配置 mac os</a>
+                </li>
+                <li>
+                    <em>2022-04-02</em>
+                    <a href="./post/202204/2020-04-02-移动端适配方案-pc端.html" target="_blank">[工作日记]移动端适配方案-pc端</a>
+                </li>
+                <li>
+                    <em>2022-04-01</em>
+                    <a href="./post/202204/2020-04-01-canvas-save-restore.html"
+                        target="_blank">canvas的save和restore方法</a>
+                </li>
+                <li>
+                    <em>2022-03-30</em>
+                    <a href="./post/202203/2022-03-30-封装localStorage.html" target="_blank">封装localStorage</a>
+                </li>
+                <li>
+                    <em>2022-03-29</em>
+                    <a href="./post/202203/2022-03-29-[工作日记]axios封装.html" target="_blank">[工作日记]axios封装</a>
+                </li>
+                <li>
+                    <em>2022-03-28</em>
+                    <a href="./post/202203/2022-03-28-canvas-line-width.html" target="_blank">canvas的lineWidth</a>
+                </li>
+                <li>
+                    <em>2022-03-27</em>
+                    <a href="./post/202203/2022-03-27-滚动相关的概念梳理.html" target="_blank">滚动相关概念offset,client,scroll梳理</a>
+                </li>
+                <li>
+                    <em>2022-03-26</em>
+                    <a href="./post/202203/2022-03-26-移动端reset.css.html" target="_blank">移动端reset.css</a>
+                </li>
+                <li>
+                    <em>2022-03-25</em>
+                    <a href="./post/202203/2022-03-25-[工作日记]box-shadow、EventBus.html"
+                        target="_blank">[工作日记]box-shadow、EventBus</a>
+                </li>
+                <li>
+                    <em>2022-03-22</em>
+                    <a href="./post/202203/2022-03-22-[工作日记]移动端适配方案.html" target="_blank">[工作日记]移动端适配方案</a>
+                </li>
+                <li>
+                    <em>2022-03-21</em>
+                    <a href="./post/202203/[工作日记]vue3_vant框架搭建.html" target="_blank">[工作日记]vue3_vant框架搭建</a>
+                </li>
+                <li>
+                    <em>2022-03-20</em>
+                    <a href="./post/202203/2022-03-20-canvas-arc.html" target="_blank">canvas的弧形之基础用法</a>
+                </li>
+                <li>
+                    <em>2022-03-19</em>
+                    <a href="./post/202203/2022-03-19-canvas-path.html" target="_blank">canvas的绘制路径</a>
+                </li>
+                <li>
+                    <em>2022-03-18</em>
+                    <a href="./post/202203/2022-03-18-canvas-rect.html" target="_blank">Canvas的矩形绘制</a>
+                </li>
+                <li>
+                    <em>2022-03-17</em>
+                    <a href="./post/202203/2022-03-17-canvas-basic.html" target="_blank">Canvas的基本用法</a>
+                </li>
+                <li>
+                    <em>2022-03-16</em>
+                    <a href="./post/202203/2022-03-16-scrapper.html" target="_blank">JS数据采集-将列表转换成数据</a>
+                </li>
+                <li>
+                    <em>2022-03-16</em>
+                    <a href="https://blog.csdn.net/qq_43293207/article/details/113922964"
+                        target="_blank">介绍移动端适配的一篇好文章</a>
+                </li>
+                <li>
+                    <em>2022-03-15</em>
+                    <a href="./post/202203/2022-03-15-object.html" target="_blank">温故知新-object 的一些方法</a>
+                </li>
+                <li>
+                    <em>2022-03-13</em>
+                    <a href="./post/202203/position.html" target="_blank">重新认识Position</a>
+                </li>
+                <li>
+                    <em>2022-03-12</em>
+                    <a href="./post/202203/canvas-1.html" target="_blank">canvas 教程之 fill 与 stroke的区别</a>
+                </li>
+            </ul>
         </div>
-        <div class="container">
-            <div class="article">
-                <h3>小文章</h3>
-                <ul>
-                    <li>
-                        <em>2022-04-05</em>
-                        <a
-                            href="./post/202204/2020-04-05-canvas绘制字体.html"
-                            target="_blank"
-                            >canvas 绘制字体</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-04-04</em>
-                        <a
-                            href="./post/202204/2020-04-04-flutter 安装与配置mac os.html"
-                            target="_blank"
-                            >flutter 安装与配置 mac os</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-04-02</em>
-                        <a
-                            href="./post/202204/2020-04-02-移动端适配方案-pc端.html"
-                            target="_blank"
-                            >[工作日记]移动端适配方案-pc端</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-04-01</em>
-                        <a
-                            href="./post/202204/2020-04-01-canvas-save-restore.html"
-                            target="_blank"
-                            >canvas的save和restore方法</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-30</em>
-                        <a
-                            href="./post/202203/2022-03-30-封装localStorage.html"
-                            target="_blank"
-                            >封装localStorage</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-29</em>
-                        <a
-                            href="./post/202203/2022-03-29-[工作日记]axios封装.html"
-                            target="_blank"
-                            >[工作日记]axios封装</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-28</em>
-                        <a
-                            href="./post/202203/2022-03-28-canvas-line-width.html"
-                            target="_blank"
-                            >canvas的lineWidth</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-27</em>
-                        <a
-                            href="./post/202203/2022-03-27-滚动相关的概念梳理.html"
-                            target="_blank"
-                            >滚动相关概念offset,client,scroll梳理</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-26</em>
-                        <a
-                            href="./post/202203/2022-03-26-移动端reset.css.html"
-                            target="_blank"
-                            >移动端reset.css</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-25</em>
-                        <a
-                            href="./post/202203/2022-03-25-[工作日记]box-shadow、EventBus.html"
-                            target="_blank"
-                            >[工作日记]box-shadow、EventBus</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-22</em>
-                        <a
-                            href="./post/202203/2022-03-22-[工作日记]移动端适配方案.html"
-                            target="_blank"
-                            >[工作日记]移动端适配方案</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-21</em>
-                        <a
-                            href="./post/202203/[工作日记]vue3_vant框架搭建.html"
-                            target="_blank"
-                            >[工作日记]vue3_vant框架搭建</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-20</em>
-                        <a
-                            href="./post/202203/2022-03-20-canvas-arc.html"
-                            target="_blank"
-                            >canvas的弧形之基础用法</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-19</em>
-                        <a
-                            href="./post/202203/2022-03-19-canvas-path.html"
-                            target="_blank"
-                            >canvas的绘制路径</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-18</em>
-                        <a
-                            href="./post/202203/2022-03-18-canvas-rect.html"
-                            target="_blank"
-                            >Canvas的矩形绘制</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-17</em>
-                        <a
-                            href="./post/202203/2022-03-17-canvas-basic.html"
-                            target="_blank"
-                            >Canvas的基本用法</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-16</em>
-                        <a
-                            href="./post/202203/2022-03-16-scrapper.html"
-                            target="_blank"
-                            >JS数据采集-将列表转换成数据</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-16</em>
-                        <a
-                            href="https://blog.csdn.net/qq_43293207/article/details/113922964"
-                            target="_blank"
-                            >介绍移动端适配的一篇好文章</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-15</em>
-                        <a
-                            href="./post/202203/2022-03-15-object.html"
-                            target="_blank"
-                            >温故知新-object 的一些方法</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-13</em>
-                        <a href="./post/202203/position.html" target="_blank"
-                            >重新认识Position</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-12</em>
-                        <a href="./post/202203/canvas-1.html" target="_blank"
-                            >canvas 教程之 fill 与 stroke的区别</a
-                        >
-                    </li>
-                </ul>
-            </div>
-            <div class="project">
-                <h3>小练习</h3>
-                <ul>
-                    <li>
-                        <em>2022-03-14</em>
-                        <a
-                            target="_blank"
-                            href="./daily/2022-03/2022-03-14-button.html"
-                            >新拟物风格按钮</a
-                        >
-                    </li>
-                    <li>
-                        <em>2022-03-12</em>
-                        <a
-                            target="_blank"
-                            href="./daily/popup/2022-03-note.html"
-                            >popup弹出框</a
-                        >
-                    </li>
-                </ul>
-            </div>
+        <div class="project">
+            <h3>小练习</h3>
+            <ul>
+                <li>
+                    <em>2022-03-14</em>
+                    <a target="_blank" href="./daily/2022-03/2022-03-14-button.html">新拟物风格按钮</a>
+                </li>
+                <li>
+                    <em>2022-03-12</em>
+                    <a target="_blank" href="./daily/popup/2022-03-note.html">popup弹出框</a>
+                </li>
+            </ul>
         </div>
-        <!-- <div class="chart">
+    </div>
+    <!-- <div class="chart">
             <img src="https://ghchart.rshah.org/c3b6a2/xuelixuan" />
         </div> -->
-        <!-- https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage  stay-->
-        <div class="footer">
-            <a href="https://beian.miit.gov.cn" target="_blank"
-                >京ICP备2022007700号-1</a
-            >
-        </div>
-    </body>
+    <!-- https://developer.mozilla.org/zh-CN/docs/Web/API/Canvas_API/Tutorial/Basic_usage  stay-->
+    <div class="footer">
+        <a href="https://beian.miit.gov.cn" target="_blank">京ICP备2022007700号-1</a>
+    </div>
+</body>
+
 </html>
