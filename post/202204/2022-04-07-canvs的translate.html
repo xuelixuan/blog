@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>canvas的translate</title>
+</head>
+
+<body>
+    <canvas id="canvas"></canvas>
+    <pre>
+        translate方法可以对单一要素进行重复排序,比如文字进行多次排序.
+        其中循环的次数可以使用变量进行控制,手动控制要重复的次数.
+        function draw() {
+            let canvas = document.getElementById("canvas");
+            if (canvas.getContext("2d")) {
+                let ctx = canvas.getContext("2d");
+                for (var i = 0; i < 3; i++) {
+                    for (var j = 0; j < 3; j++) {
+                        ctx.save();
+                        ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+                        ctx.translate(10 + j * 50, 10 + i * 50);
+                        ctx.fillRect(0, 0, 25, 25);
+                        ctx.restore();
+                    }
+                }
+            }
+        }
+        draw();
+    </pre>
+    <script>
+        function draw() {
+            let canvas = document.getElementById("canvas");
+            if (canvas.getContext("2d")) {
+                let ctx = canvas.getContext("2d");
+                for (var i = 0; i < 3; i++) {
+                    for (var j = 0; j < 3; j++) {
+                        ctx.save();
+                        ctx.fillStyle = 'rgb(' + (51 * i) + ', ' + (255 - 51 * i) + ', 255)';
+                        ctx.translate(10 + j * 50, 10 + i * 50);
+                        ctx.fillRect(0, 0, 25, 25);
+                        ctx.restore();
+                    }
+                }
+            }
+        }
+        draw();
+    </script>
+</body>
+
+</html>
