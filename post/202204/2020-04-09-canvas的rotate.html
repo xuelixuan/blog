@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>canvas的roate旋转</title>
+    </head>
+    <body>
+        <pre>
+            旋转是以画布左上角0,0坐标开始。
+            旋转的正方向是顺时针，旋转的反方向是逆时针。
+        </pre>
+        <canvas id="canvas" width="800" height="800"></canvas>
+        <script>
+            function draw() {
+                let canvas = document.getElementById("canvas");
+                if (canvas.getContext("2d")) {
+                    let ctx = canvas.getContext("2d");
+                    ctx.rotate(-Math.PI / 6); // 反方向旋转30度
+                    ctx.fillRect(100, 100, 300, 200);
+                }
+            }
+            draw();
+        </script>
+    </body>
+</html>
