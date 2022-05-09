@@ -1,4 +1,4 @@
-# word-break:break-all;失效如何解决
+# word-break:break-all失效如何解决
 
 观察当前元素的所有属性，是否设置了`white-space:nowrap; `。
 
