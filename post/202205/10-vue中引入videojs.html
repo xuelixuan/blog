@@ -278,8 +278,9 @@ npm install videojs<span class="token operator">-</span>contrib<span class="toke
 <pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token comment">// oPlayer.vue</span>
 
 <span class="token operator">&lt;</span>template<span class="token operator">&gt;</span>
-    <span class="token operator">&lt;</span>div <span class="token keyword keyword-class">class</span><span class="token operator">=</span><span class="token string">&quot;videoPlayer&quot;</span><span class="token operator">&gt;</span>
-        <span class="token operator">&lt;</span>video id<span class="token operator">=</span><span class="token string">&quot;video&quot;</span> style<span class="token operator">=</span><span class="token string">&apos;width: 100%;height: 100%&apos;</span> <span class="token keyword keyword-class">class</span><span class="token operator">=</span><span class="token string">&quot;video-js vjs-default-skin&quot;</span> preload<span class="token operator">=</span><span class="token string">&quot;auto&quot;</span><span class="token operator">&gt;</span> <span class="token operator">&lt;</span><span class="token operator">/</span>video<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>div <span class="token keyword keyword-class">class</span><span class="token operator">=</span><span class="token string">&quot;videoPlayer&quot;</span> id<span class="token operator">=</span><span class="token string">&quot;videoPlayer&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span>video id<span class="token operator">=</span><span class="token string">&quot;myvideo&quot;</span> style<span class="token operator">=</span><span class="token string">&apos;width: 100%;height: 100%&apos;</span> <span class="token keyword keyword-class">class</span><span class="token operator">=</span><span class="token string">&quot;video-js vjs-default-skin&quot;</span> preload<span class="token operator">=</span><span class="token string">&quot;auto&quot;</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>video<span class="token operator">&gt;</span>
     <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span><span class="token operator">/</span>template<span class="token operator">&gt;</span>
 <span class="token operator">&lt;</span>script<span class="token operator">&gt;</span>
@@ -296,7 +297,7 @@ npm install videojs<span class="token operator">-</span>contrib<span class="toke
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
             <span class="token function">onUnmounted</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-                videojs<span class="token punctuation">.</span><span class="token property-access">players</span><span class="token punctuation">.</span><span class="token property-access">video</span><span class="token punctuation">.</span><span class="token method function property-access">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x9500;&#x6BC1;videojs</span>
+                videojs<span class="token punctuation">.</span><span class="token property-access">players</span><span class="token punctuation">.</span><span class="token property-access">myvideo</span><span class="token punctuation">.</span><span class="token method function property-access">dispose</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// &#x9500;&#x6BC1;videojs</span>
             <span class="token punctuation">}</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token function">data</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -305,6 +306,8 @@ npm install videojs<span class="token operator">-</span>contrib<span class="toke
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         <span class="token function">mounted</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-var">var</span> myVideoDiv <span class="token operator">=</span> <span class="token dom variable">document</span><span class="token punctuation">.</span><span class="token method function property-access">getElementById</span><span class="token punctuation">(</span><span class="token string">&quot;videoPlayer&quot;</span><span class="token punctuation">)</span>
+            myVideoDiv<span class="token punctuation">.</span><span class="token property-access">innerHTML</span> <span class="token operator">=</span> <span class="token string">&quot;&lt;video id=&apos;myvideo&apos;  style=&apos;width: 100%;height: 100%&apos; class=&apos;video-js vjs-default-skin&apos; preload=&apos;auto&apos;&gt;&lt;/video&gt;&quot;</span>
             <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method function property-access">init</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
         methods<span class="token operator">:</span> <span class="token punctuation">{</span>
@@ -331,9 +334,7 @@ npm install videojs<span class="token operator">-</span>contrib<span class="toke
                     <span class="token punctuation">}</span><span class="token punctuation">,</span>
                 <span class="token punctuation">}</span>
                 <span class="token comment">// &#x64AD;&#x653E;&#x5668;&#x521D;&#x59CB;&#x5316;</span>
-                <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method function property-access">$nextTick</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
-                    <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">player</span> <span class="token operator">=</span> <span class="token function">videojs</span><span class="token punctuation">(</span><span class="token string">&apos;video&apos;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
-                <span class="token punctuation">}</span><span class="token punctuation">)</span>
+                <span class="token function">videojs</span><span class="token punctuation">(</span><span class="token string">&apos;myvideo&apos;</span><span class="token punctuation">,</span> options<span class="token punctuation">)</span>
             <span class="token punctuation">}</span>
         <span class="token punctuation">}</span><span class="token punctuation">,</span>
     <span class="token punctuation">}</span>

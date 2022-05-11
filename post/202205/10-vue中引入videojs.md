@@ -25,8 +25,9 @@ import 'videojs-contrib-hls'
 // oPlayer.vue
 
 <template>
-    <div class="videoPlayer">
-        <video id="video" style='width: 100%;height: 100%' class="video-js vjs-default-skin" preload="auto"> </video>
+    <div class="videoPlayer" id="videoPlayer">
+        <video id="myvideo" style='width: 100%;height: 100%' class="video-js vjs-default-skin" preload="auto">
+        </video>
     </div>
 </template>
 <script>
@@ -43,7 +44,7 @@ import 'videojs-contrib-hls'
         },
         setup() {
             onUnmounted(() => {
-                videojs.players.video.dispose(); // 销毁videojs
+                videojs.players.myvideo.dispose(); // 销毁videojs
             })
         },
         data() {
@@ -52,6 +53,8 @@ import 'videojs-contrib-hls'
             }
         },
         mounted() {
+            var myVideoDiv = document.getElementById("videoPlayer")
+            myVideoDiv.innerHTML = "<video id='myvideo'  style='width: 100%;height: 100%' class='video-js vjs-default-skin' preload='auto'></video>"
             this.init()
         },
         methods: {
@@ -78,9 +81,7 @@ import 'videojs-contrib-hls'
                     },
                 }
                 // 播放器初始化
-                this.$nextTick(() => {
-                    this.player = videojs('video', options)
-                })
+                videojs('myvideo', options)
             }
         },
     }
