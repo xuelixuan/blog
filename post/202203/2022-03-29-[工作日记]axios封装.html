@@ -5,11 +5,6 @@
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-        <link
-            rel="stylesheet"
-            href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css"
-        />
-
         <style>
             /**
  * prism.js Github theme based on GitHub's theme.
@@ -19,8 +14,7 @@
             pre[class*="language-"] {
                 color: #333;
                 background: none;
-                font-family: Consolas, "Liberation Mono", Menlo, Courier,
-                    monospace;
+                font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
                 text-align: left;
                 white-space: pre;
                 word-spacing: normal;
@@ -222,11 +216,7 @@
                 padding: inherit 0;
                 margin-top: 1em;
                 background: hsla(24, 20%, 50%, 0.08);
-                background: linear-gradient(
-                    to right,
-                    hsla(24, 20%, 50%, 0.1) 70%,
-                    hsla(24, 20%, 50%, 0)
-                );
+                background: linear-gradient(to right, hsla(24, 20%, 50%, 0.1) 70%, hsla(24, 20%, 50%, 0));
                 pointer-events: none;
                 line-height: inherit;
                 white-space: pre;
@@ -256,8 +246,7 @@
                 bottom: 0.4em;
             }
             html body {
-                font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial,
-                    freesans, sans-serif;
+                font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
                 font-size: 16px;
                 line-height: 1.6;
                 color: #333;
@@ -577,10 +566,7 @@
                 display: block;
                 counter-increment: linenumber;
             }
-            .markdown-preview
-                pre.line-numbers
-                .line-numbers-rows
-                > span:before {
+            .markdown-preview pre.line-numbers .line-numbers-rows > span:before {
                 content: counter(linenumber);
                 color: #999;
                 display: block;
@@ -622,44 +608,32 @@
                 padding: 0;
                 overflow: auto;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])
-                .markdown-preview {
+            html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
                 position: relative;
                 top: 0;
             }
             @media screen and (min-width: 914px) {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])
-                    .markdown-preview {
+                html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
                     padding: 2em calc(50% - 457px + 2em);
                 }
             }
             @media screen and (max-width: 914px) {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])
-                    .markdown-preview {
+                html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
                     padding: 2em;
                 }
             }
             @media screen and (max-width: 450px) {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])
-                    .markdown-preview {
+                html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview {
                     font-size: 14px !important;
                     padding: 1em;
                 }
             }
             @media print {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])
-                    #sidebar-toc-btn {
+                html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
                     display: none;
                 }
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])
-                #sidebar-toc-btn {
+            html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn {
                 position: fixed;
                 bottom: 8px;
                 left: 8px;
@@ -671,14 +645,10 @@
                 text-align: center;
                 opacity: 0.4;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                #sidebar-toc-btn {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn {
                 opacity: 1;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .md-sidebar-toc {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc {
                 position: fixed;
                 top: 0;
                 left: 0;
@@ -710,34 +680,20 @@
                 border: 4px solid rgba(150, 150, 150, 0.66);
                 background-clip: content-box;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .md-sidebar-toc
-                a {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a {
                 text-decoration: none;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .md-sidebar-toc
-                ul {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
                 padding: 0 1.6em;
                 margin-top: 0.8em;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .md-sidebar-toc
-                li {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li {
                 margin-bottom: 0.8em;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .md-sidebar-toc
-                ul {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul {
                 list-style-type: none;
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                .markdown-preview {
+            html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
                 left: 300px;
                 width: calc(100% - 300px);
                 padding: 2em calc(50% - 457px - 150px);
@@ -745,28 +701,20 @@
                 box-sizing: border-box;
             }
             @media screen and (max-width: 1274px) {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                    .markdown-preview {
+                html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
                     padding: 2em;
                 }
             }
             @media screen and (max-width: 450px) {
-                html
-                    body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc]
-                    .markdown-preview {
+                html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview {
                     width: 100%;
                 }
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc])
-                .markdown-preview {
+            html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview {
                 left: 50%;
                 transform: translateX(-50%);
             }
-            html
-                body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc])
-                .md-sidebar-toc {
+            html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc {
                 display: none;
             }
             /* Please visit the URL below for more information: */
@@ -775,16 +723,13 @@
     </head>
     <body for="html-export">
         <div class="mume markdown-preview">
-            <h2
-                class="mume-header"
-                id="%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%B0%81%E8%A3%85-axios"
-            >
+            <h2 class="mume-header" id="%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%B0%81%E8%A3%85-axios">
                 &#x7B2C;&#x4E00;&#x6B65;&#x5C01;&#x88C5; axios
             </h2>
 
             <p>
-                &#x5728; src &#x4E0B;&#x65B0;&#x5EFA;&#x76EE;&#x5F55; api
-                &#x5E76;&#x521B;&#x5EFA; http.js &#x6587;&#x4EF6;
+                &#x5728; src &#x4E0B;&#x65B0;&#x5EFA;&#x76EE;&#x5F55; api &#x5E76;&#x521B;&#x5EFA; http.js
+                &#x6587;&#x4EF6;
             </p>
             <pre
                 data-role="codeBlock"
@@ -839,8 +784,7 @@ service<span class="token punctuation">.</span><span class="token property-acces
                 class="mume-header"
                 id="%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E5%86%99%E6%8E%A5%E5%8F%A3%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"
             >
-                &#x7B2C;&#x4E8C;&#x6B65;
-                &#x5199;&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x65B9;&#x6CD5;
+                &#x7B2C;&#x4E8C;&#x6B65; &#x5199;&#x63A5;&#x53E3;&#x8C03;&#x7528;&#x65B9;&#x6CD5;
             </h2>
 
             <p>&#x5728; api &#x76EE;&#x5F55;&#x4E0B;,&#x65B0;&#x5EFA; api.js</p>
