@@ -96,4 +96,123 @@ async function initFetch(rssItem, onFinish) {
 module.exports = initFetch;
 ```
 
-看到这里https://github.com/ChanceYu/front-end-rss/blob/master/server/update.js
+update.js
+
+```js
+const fs = require("fs-extra"); // 添加了node fs模块没有的方法，支持promise
+const Async = require("async"); // 异步库
+const moment = require("moment"); // 时间格式
+const Git = require("simple-git"); // 自动提交到git
+
+const utils = require("./utils");
+const writemd = require("./writemd");
+const fetch = require("./fetch");
+
+const { RESP_PATH, RSS_PATH, LINKS_PATH } = utils.PATH;
+
+let rssJson = null;
+let linksJson = null;
+let newData = null;
+
+/**
+ * 更新 git 仓库
+ */
+function handleUpdate() {
+	utils.log("开始更新抓取");
+
+	Git(RESP_PATH).pull().exec(handleFeed);
+}
+
+/**
+ * 提交修改到 git 仓库
+ */
+function handleCommit() {
+	utils.log("完成抓取，即将上传");
+
+	Git(RESP_PATH)
+		.add("./*")
+		.commit("更新: " + newData.titles.join("、"))
+		.push(["-u", "origin", "master"], () => utils.logSuccess("完成抓取和上传！"));
+}
+
+/**
+ * 处理订阅源
+ */
+function handleFeed() {
+	rssJson = fs.readJsonSync(RSS_PATH);
+	linksJson = fs.readJsonSync(LINKS_PATH);
+	newData = {
+		length: 0,
+		titles: [],
+		rss: {},
+		links: {},
+	};
+
+	const tasks = rssJson.map((rssItem, rssIndex) => (callback) => {
+		(async () => {
+			const feed = await fetch(rssItem); // 返回单一源的所有list
+			if (feed) {
+				const items = linksJson[rssIndex].items || []; // 拿到本地list
+				const newItems = feed.items.reduce((prev, curr) => {
+					// prev 是上一次reduce执行函数得到的结果
+					const exist = items.find((el) => utils.isSameLink(el.link, curr.link)); // 两个list进行对比
+					if (exist) {
+						// 已经有了，直接跳过这一条，进行下一条
+						return prev;
+					} else {
+						// 如果没有，进行信息录入
+						let date = moment().format("YYYY-MM-DD");
+
+						try {
+							date = moment(curr.isoDate).format("YYYY-MM-DD");
+						} catch (e) {}
+
+						newData.rss[rssItem.title] = true;
+						newData.links[curr.link] = true;
+
+						return [
+							...prev,
+							{
+								title: curr.title,
+								link: curr.link,
+								date,
+							},
+						];
+					}
+				}, []);
+				// 如果有更新
+				if (newItems.length) {
+					utils.logSuccess("更新 RSS: " + rssItem.title);
+					newData.titles.push(rssItem.title);
+					newData.length += newItems.length;
+					// 将新增的数据添加到linksJson
+					linksJson[rssIndex] = {
+						title: rssItem.title,
+						items: newItems.concat(items).sort(function (a, b) {
+							return a.date < b.date ? 1 : -1;
+						}),
+					};
+				}
+			}
+			callback(null);
+		})();
+	});
+	// 异步请求所有源，如果有新增，就写入到文件，并更新md，并提交到github
+	Async.series(tasks, async () => {
+		if (newData.length) {
+			fs.outputJsonSync(LINKS_PATH, linksJson, {
+				spaces: 2,
+			});
+			await writemd(newData, linksJson);
+			handleCommit();
+		} else {
+			utils.logSuccess("无需更新");
+		}
+		rssJson = null;
+		linksJson = null;
+		newData = null;
+	});
+}
+
+module.exports = handleUpdate;
+```
