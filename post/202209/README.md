@@ -216,3 +216,58 @@ function handleFeed() {
 
 module.exports = handleUpdate;
 ```
+
+### 替代request的请求库：got
+
+```js
+const logger = require('./logger');
+const config = require('@/config').value; // 随机生成 user-agent
+const got = require('got');
+
+const custom = got.extend({
+    retry: config.requestRetry,
+    hooks: {
+        beforeRetry: [
+            (options, err, count) => {
+                logger.error(`Request ${options.url} fail, retry attempt #${count}: ${err}`);
+            },
+        ],
+        afterResponse: [
+            (response) => {
+                try {
+                    response.data = JSON.parse(response.body);
+                } catch (e) {
+                    response.data = response.body;
+                }
+                response.status = response.statusCode;
+                return response;
+            },
+        ],
+        init: [
+            (options) => {
+                // compatible with axios api
+                if (options && options.data) {
+                    options.body = options.body || options.data;
+                }
+            },
+        ],
+    },
+    headers: {
+        'user-agent': config.ua,
+    },
+    timeout: config.requestTimeout,
+});
+custom.all = (list) => Promise.all(list);
+
+module.exports = custom;
+```
+
+用法
+```js
+const got = require('@/utils/got');
+ const response = await got({
+        method: 'get',
+        url: currentUrl,
+    });
+console.log(response, response.data)
+```
