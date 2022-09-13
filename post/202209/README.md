@@ -5,6 +5,7 @@
 -   [Front-End RSS](https://github.com/ChanceYu/front-end-rss)
     -   nodejs 抓取-vue 展示-抓取标题自动更新到 git 上
     -   Later.js 使用重复计划的最简单方法 http://bunkat.github.io/later/
+- [inkrss](https://github.com/pureink/inkrss)
 
 ```js
 // app.js
