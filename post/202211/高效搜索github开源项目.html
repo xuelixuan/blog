@@ -1,0 +1,370 @@
+<!DOCTYPE html><html><head>
+      <title>&#x9AD8;&#x6548;&#x641C;&#x7D22;github&#x5F00;&#x6E90;&#x9879;&#x76EE;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="%E9%AB%98%E6%95%88%E6%90%9C%E7%B4%A2-github-%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE">&#x9AD8;&#x6548;&#x641C;&#x7D22; github &#x5F00;&#x6E90;&#x9879;&#x76EE;</h1>
+
+<p>When I was a beginner to open-source contributions, one of my greatest challenge was finding the correct projects/issues to work on.</p>
+<p>For the longest time I relied on resources curated by different writers on the internet (which were good, by the way). But I always wanted to find a way around this problem &#x2013; a way I could search for and track projects that were right for my skill set.</p>
+<p>Let&apos;s agree on one thing: unlike Google, searching GitHub is not easy. But as a developer, chances are that you&apos;ll interacting with GitHub or Gitlab on a daily basis.</p>
+<p>Now the question isn&apos;t what you use these version control systems for, but how you are using them. Just like mastering Google search skills is essential for any regular internet user, I believe it&apos;s also essential for developers to learn how to effectively search GitHub.</p>
+<p>In this article we are going to take a look at different techniques you can use to correctly search GitHub. You&apos;ll learn how to search through:</p>
+<ul>
+<li>Issues and Pull Requests</li>
+<li>Repositories</li>
+<li>Users</li>
+<li>Topics</li>
+<li>And more. Let&apos;s get started.</li>
+</ul>
+<h2 class="mume-header" id="github-search-queries">GitHub Search Queries</h2>
+
+<p>In order to find detailed information about something on the internet, you need to have the correct searching skills. It&apos;s not any different with GitHub &#x2013; to find detailed info you can utilize common filter, sort, and searching techniques to easily find specific issues and pull requests of a given project.</p>
+<p>Even though you have multiple resources listed on the internet for different projects, the main problem comes in when you want to do a search by yourself. How do you get started? Which keywords should you use to find the correct results?</p>
+<p>Most maintainers tend to label their projects with issues, which makes it easier for contributors to find suitable projects. Listed below are some of the tricks that might help you out when you are using GitHub.</p>
+<h3 class="mume-header" id="how-to-search-issues-and-pull-requests-on-github">How to Search Issues and Pull Requests on GitHub</h3>
+
+<p>One of the most common ways of finding projects to contribute to is by searching through issues and related PRs. Here are some tricks you can use to easily find reliable answers:</p>
+<ul>
+<li><code>is:issue is:open label:beginner</code> - This particular query will list all projects with issues that are open and labeled beginner.</li>
+<li><code>is:issue is:open label:easy</code> - This will list all open issues that are labeled easy.</li>
+<li><code>is:issue is:open label:first-timers-only</code> - This lists all open issues that welcome first-timer contributions.</li>
+<li><code>is:issue is:open label:good-first-bug</code> - This lists projects with open issues labeled good-first-bug, to attract contributors to work on them.</li>
+<li><code>is:issue is:open label:&quot;good first issue&quot;</code> - This will list all open issues with the label good first issue, meaning it is good for place for beginners to get started.</li>
+<li><code>is:issue is:open label:starter</code> - This lists all open issues from across GitHub that are labeled starter.</li>
+<li><code>is:issue is:open label:up-for-grabs</code> - This lists open issues that are ready to be worked on if you have the necessary skills.</li>
+<li><code>no:project type:issue is:open</code> - This will list all open issues that are not assigned to a specific project.</li>
+<li><code>no:milestone type:issue is:open</code> - Many times, projects are tracked with milestones. But if you want to find issues that are not tracked, this search query will list those projects for you.</li>
+<li><code>no:label type:issue is:open</code> - This lists all open issues that are not labeled.</li>
+<li><code>is:issue is:open no:assignee</code> - This shows all open issues that have not yet been assigned to a person.</li>
+</ul>
+<h3 class="mume-header" id="how-to-search-repositories">How to Search Repositories</h3>
+
+<p>By default, to make a search you will type the repository name in the search bar and voil&#xE0;! You get some search results.</p>
+<p>But the chances of you landing on the exact repo you intended are very low.</p>
+<p>Let&apos;s look at some ways you can narrow down your search:</p>
+<h3 class="mume-header" id="how-to-find-by-name-descriptionreadme">How to Find by Name, Description/README</h3>
+
+<p>A thing to note when you search by Name and description of the README file is that your search phrase should begin with the <code>in</code> qualifier. This makes it possible to search &quot;inside&quot; what you are looking for.</p>
+<h4 class="mume-header" id="example">Example</h4>
+
+<p>Using <code>in:name</code>. Let&apos;s say you are looking for resources to learn more about Data Science. In this case, you can use the command <code>Data Science in:name</code> which will list repositories with Data Science in the repository name.</p>
+<p>Using <code>in:description</code>. If you want to find repositories with a ceratin description, for example repositories where the term &quot;freeCodeCamp&quot; is included in the descriptionm, our search will be: <code>freecodecamp in:description</code></p>
+<p>Using <code>in:readme</code>. You use this to search through a README of a file for a certain phrase. If we want to find repositories where the term freecodecamp is included in the README, our search will be: <code>freecodecamp in:readme</code>.</p>
+<p>Using <code>in:topic</code>. You use this to find if a certain phrase or word is labeled in the topics. For example to find all repositories where freecodecamp is listed in the topic, our search will be: <code>freecodecamp in:topic</code></p>
+<p>You can also combine multiple search queries to further narrow down the search.</p>
+<h3 class="mume-header" id="how-to-find-by-stars-forks">How to Find by Stars, Forks</h3>
+
+<p>You can also search for a repository based on how many stars and forks the project has. This makes it easier for you to know how popular the project is.</p>
+<h4 class="mume-header" id="examples">Examples</h4>
+
+<p>Using <code>stars:n</code>. If you search for a repository with 1000 stars, then your search query will be <code>stars:1000</code>. This will list repositories with exactly 1000 stars.</p>
+<p>Using <code>forks:n</code>. This specifies the number of forks a repository should have. If you want find repositories that have less than 100 forks, your search will be: <code>forks:&lt;100</code>.</p>
+<p>The good thing is that you can always use relational operators like <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> &amp; <code>..</code> to help you further narrow your search.</p>
+<h3 class="mume-header" id="how-to-find-by-language">How to Find by Language</h3>
+
+<p>Another cool way to search through GitHub is by language. This helps you filter out repositories to a specific language.</p>
+<h4 class="mume-header" id="example-1">Example:</h4>
+
+<p>Using <code>language:LANGUAGE</code>. For example if you want to find repositories written in PHP, your search will be: <code>language:PHP</code><br>
+How to Find by Organization Name<br>
+You can also search repositories/projects that are maintained or created by a specific organization. For this you need to begin your search with the keyword org:... followed by the organization name.</p>
+<p>For example if you search <code>org:freecodecamp</code> it will list repositories that match freeCodeCamp.</p>
+<h3 class="mume-header" id="how-to-find-by-date">How to Find by Date</h3>
+
+<p>If you want your results based on a specific date, you can search using one of these keywords: created, updated, merged and closed. These keywords should be accompanied by date in the format YYYY-MM-DD.</p>
+<h4 class="mume-header" id="example-2">Example:</h4>
+
+<p>Using <code>keyword:YYYY-MM-DD</code>. Take an instance where we want to make a search of all repositories with the word freeCodeCamp that were created after 2022-10-01. Then our search will be: <code>freecodecamp created:&gt;2022-10-01</code><br>
+You can also use <code>&lt;</code>, <code>&gt;</code>, <code>&gt;=</code> and <code>&lt;=</code> to search for dates after, before and on the specified date. To search within a range you can use ....</p>
+<h3 class="mume-header" id="how-to-find-by-license">How to Find by License</h3>
+
+<p>Licenses are very important when you are are looking for a project to contribute to. Different licenses give different rights as to what a contributor can do or can not do.</p>
+<p>To make it easier for you to find projects with right licenses you need to have a good understanding of licenses. You can read more about them here.</p>
+<h4 class="mume-header" id="example-3">Example:</h4>
+
+<p>Using <code>license:LICENSE_KEYWORD</code>. This is a good way to search for projects with specific licenses. To search projects with the MIT license, for instance, you would do <code>license:MIT</code>.</p>
+<h3 class="mume-header" id="how-to-find-by-visibility">How to Find by Visibility</h3>
+
+<p>You can also conduct your search in terms of the visibility of the repository. In this case you can either use public or private. This will match issues and PRs that are either in a public or private repository, respectively.</p>
+<h4 class="mume-header" id="examples-1">Examples:</h4>
+
+<p>Using <code>is:public</code>. This will show a list of public repositories. Let&apos;s take an isntance where we want to search all public repositories owned by freeCodCamp. Then our search will be: <code>is:public</code> <code>org:freecodecamp</code>.<br>
+Using <code>is:private</code>. This query is meant to lists all private repositories under the given search query.<br>
+Conclusion<br>
+Even though we have covered many search queries here, you can always be creative to further narrow your search by combining multiple parameters together.</p>
+<p>For additional resources and more search parameters, you can always refer to the GitHub Docs or make use of Advanced GitHub Search. These methods will always come in handy as they offer more filering options.</p>
+<p>There are a ton of search parameters you can use to make your daily activity around GitHub easier. Hopefully this will help you use the platform more easily and effectively.</p>
+<p>&#x6765;&#x6E90;&#xFF1A;<a href="https://www.freecodecamp.org/news/github-search-tips/">https://www.freecodecamp.org/news/github-search-tips/</a></p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
