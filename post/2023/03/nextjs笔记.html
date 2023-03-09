@@ -1,0 +1,831 @@
+<!DOCTYPE html><html><head>
+      <title>nextjs&#x7B14;&#x8BB0;</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p,html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div{display:inline}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  300px/2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="nextjs-%E7%AC%94%E8%AE%B0">nextjs &#x7B14;&#x8BB0;</h1>
+
+<p><a href="http://nextjs-in-action-cn.taonan.lu/">http://nextjs-in-action-cn.taonan.lu/</a><br>
+<a href="https://nextjs.zhd.icu/">https://nextjs.zhd.icu/</a></p>
+<h2 class="mume-header" id="%E8%B5%84%E6%BA%90-%E5%85%83%E6%95%B0%E6%8D%AE%E5%92%8C-css">&#x8D44;&#x6E90;&#x3001;&#x5143;&#x6570;&#x636E;&#x548C; CSS</h2>
+
+<h2 class="mume-header" id="%E5%85%83%E6%95%B0%E6%8D%AE">&#x5143;&#x6570;&#x636E;</h2>
+
+<h2 class="mume-header" id="%E5%85%AC%E5%85%B1%E6%A0%B7%E5%BC%8F">&#x516C;&#x5171;&#x6837;&#x5F0F;</h2>
+
+<p>&#x5728;/styles &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA; global.css &#x6587;&#x4EF6;<br>
+&#x5728;/pages &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;_app.js &#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token string">&apos;../styles/global.css&apos;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span><span class="token punctuation">,</span> pageProps <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span><span class="token maybe-class-name">Component</span> <span class="token punctuation">{</span><span class="token spread operator">...</span>pageProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+</pre><p>css &#x7A7F;&#x900F;<br>
+&#x5F53;&#x524D;&#x7EC4;&#x4EF6; css &#x7A7F;&#x900F;&#x5230; antd &#x8FD9;&#x6837;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x7EC4;&#x4EF6;&#xFF0C;&#x5B9E;&#x73B0;&#x5728;&#x7EC4;&#x4EF6;&#x5185;&#x66F4;&#x6539; antd,swiper &#x7B49;&#x63D2;&#x4EF6;&#x6837;&#x5F0F;&#x3002;<br>
+&#x4F7F;&#x7528; :global &#x5173;&#x952E;&#x5B57;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token punctuation">.</span><span class="token property-access">swiper</span> <span class="token punctuation">{</span>
+    <span class="token operator">:</span>global span<span class="token punctuation">.</span><span class="token property-access">swiper</span><span class="token operator">-</span>pagination<span class="token operator">-</span>bullet <span class="token punctuation">{</span>
+        border<span class="token operator">-</span>radius<span class="token operator">:</span> <span class="token number">0</span> <span class="token operator">!</span>important<span class="token punctuation">;</span>
+        width<span class="token operator">:</span> <span class="token number">30</span>px<span class="token punctuation">;</span>
+        height<span class="token operator">:</span> <span class="token number">4</span>px<span class="token punctuation">;</span>
+        background<span class="token operator">-</span>color<span class="token operator">:</span> #c7c7c7<span class="token punctuation">;</span>
+        opacity<span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E5%86%85%E7%BD%AE%E7%BB%84%E4%BB%B6">&#x5185;&#x7F6E;&#x7EC4;&#x4EF6;</h2>
+
+<h3 class="mume-header" id="nextrouter">next/router</h3>
+
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E2D;&#x8BBF;&#x95EE; router &#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; useRouter &#x94A9;&#x5B50;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> useRouter <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/router&apos;</span>
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">ActiveLink</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> children<span class="token punctuation">,</span> href <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> router <span class="token operator">=</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> style <span class="token operator">=</span> <span class="token punctuation">{</span>
+        marginRight<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
+        color<span class="token operator">:</span> router<span class="token punctuation">.</span><span class="token property-access">asPath</span> <span class="token operator">===</span> href <span class="token operator">?</span> <span class="token string">&apos;red&apos;</span> <span class="token operator">:</span> <span class="token string">&apos;black&apos;</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword keyword-const">const</span> <span class="token function-variable function">handleClick</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">e</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        e<span class="token punctuation">.</span><span class="token method function property-access">preventDefault</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+        router<span class="token punctuation">.</span><span class="token method function property-access">push</span><span class="token punctuation">(</span>href<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>a href<span class="token operator">=</span><span class="token punctuation">{</span>href<span class="token punctuation">}</span> onClick<span class="token operator">=</span><span class="token punctuation">{</span>handleClick<span class="token punctuation">}</span> style<span class="token operator">=</span><span class="token punctuation">{</span>style<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            <span class="token punctuation">{</span>children<span class="token punctuation">}</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>a<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token maybe-class-name">ActiveLink</span>
+</pre><p>router &#x5BF9;&#x8C61;&#x7684;&#x8BE6;&#x7EC6;&#x53C2;&#x6570;&#x4EE5;&#x53CA;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x67E5;&#x770B;&#x5B98;&#x65B9;&#x6587;&#x6863; &#x2193;<br>
+&#x6765;&#x6E90;:<a href="https://nextjs.org/docs/api-reference/next/router">https://nextjs.org/docs/api-reference/next/router</a> <a href="https://nextjs.org/learn/basics/navigate-between-pages/link-component">https://nextjs.org/learn/basics/navigate-between-pages/link-component</a></p>
+<h3 class="mume-header" id="nextlink">next/link</h3>
+
+<p>&#x5728;&#x5BA2;&#x6237;&#x7AEF;&#x8FDB;&#x884C;&#x8DEF;&#x7531;&#x4E4B;&#x95F4;&#x7684;&#x5207;&#x6362;&#x3002;<br>
+&#x4F7F;&#x7528;&#x8BE5;&#x7EC4;&#x4EF6;&#x6BD4;&#x539F;&#x751F; a &#x6807;&#x7B7E;&#x66F4;&#x5177;&#x4F18;&#x52BF;&#xFF0C;&#x5BFC;&#x822A;&#x66F4;&#x5FEB;&#xFF1A;<br>
+&#x25CF;a &#x94FE;&#x63A5;&#x4F1A;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6574;&#x4E2A;&#x9875;&#x9762;<br>
+&#x25CF;Link &#x7EC4;&#x4EF6;&#x4E0D;&#x4F1A;&#x91CD;&#x65B0;&#x52A0;&#x8F7D;&#x6574;&#x4E2A;&#x9875;&#x9762;<br>
+&#x4F18;&#x52BF;&#x8BF4;&#x660E;&#xFF1A;<a href="https://nextjs.org/learn/basics/navigate-between-pages/client-side">https://nextjs.org/learn/basics/navigate-between-pages/client-side</a><br>
+Link &#x63A5;&#x53D7;&#x5F88;&#x591A;&#x53C2;&#x6570;&#xFF0C;&#x8FD9;&#x91CC;&#x53EA;&#x4ECB;&#x7ECD;&#x4E00;&#x4E2A;&#x6700;&#x5E38;&#x7528;&#x7684;&#x5C5E;&#x6027; href<br>
+href &#x5C5E;&#x6027;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A; URL &#x94FE;&#x63A5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61; Object</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Link</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/link&apos;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Home</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">Link</span> href<span class="token operator">=</span><span class="token string">&quot;/&quot;</span><span class="token operator">&gt;</span><span class="token maybe-class-name">Home</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Link</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">Link</span> href<span class="token operator">=</span><span class="token string">&quot;/about&quot;</span><span class="token operator">&gt;</span><span class="token maybe-class-name">About</span> <span class="token maybe-class-name">Us</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Link</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">Link</span> href<span class="token operator">=</span><span class="token string">&quot;/blog/hello-world&quot;</span><span class="token operator">&gt;</span><span class="token maybe-class-name">Blog</span> <span class="token maybe-class-name">Post</span><span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Link</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token maybe-class-name">Home</span>
+
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Link</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/link&apos;</span>
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Home</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>ul<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">Link</span>
+          href<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+            pathname<span class="token operator">:</span> <span class="token string">&apos;/about&apos;</span><span class="token punctuation">,</span>
+            query<span class="token operator">:</span> <span class="token punctuation">{</span> name<span class="token operator">:</span> <span class="token string">&apos;test&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token operator">&gt;</span>
+          <span class="token maybe-class-name">About</span> us
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Link</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span>li<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">Link</span>
+          href<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">{</span>
+            pathname<span class="token operator">:</span> <span class="token string">&apos;/blog/[slug]&apos;</span><span class="token punctuation">,</span>
+            query<span class="token operator">:</span> <span class="token punctuation">{</span> slug<span class="token operator">:</span> <span class="token string">&apos;my-post&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+          <span class="token punctuation">}</span><span class="token punctuation">}</span>
+        <span class="token operator">&gt;</span>
+          <span class="token maybe-class-name">Blog</span> <span class="token maybe-class-name">Post</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Link</span><span class="token operator">&gt;</span>
+      <span class="token operator">&lt;</span><span class="token operator">/</span>li<span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>ul<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token maybe-class-name">Home</span>
+</pre><p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/docs/api-reference/next/link">https://nextjs.org/docs/api-reference/next/link</a> <a href="https://nextjs.org/learn/basics/navigate-between-pages/link-component">https://nextjs.org/learn/basics/navigate-between-pages/link-component</a></p>
+<h3 class="mume-header" id="nextimage">next/image</h3>
+
+<p>&#x8BE5;&#x7EC4;&#x4EF6;&#x6BD4;&#x539F;&#x751F; img &#x6807;&#x7B7E;&#x66F4;&#x5177;&#x4F18;&#x52BF;&#xFF0C;&#x5F00;&#x7BB1;&#x5373;&#x7528;&#xFF1A;<br>
+&#x25CF; &#x786E;&#x4FDD;&#x60A8;&#x7684;&#x56FE;&#x50CF;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x5C4F;&#x5E55;&#x5C3A;&#x5BF8;&#x4E0A;&#x54CD;&#x5E94;<br>
+&#x25CF; &#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x5DE5;&#x5177;&#x6216;&#x5E93;&#x4F18;&#x5316;&#x56FE;&#x50CF;<br>
+&#x25CF; &#x4EC5;&#x5728;&#x56FE;&#x50CF;&#x8FDB;&#x5165;&#x89C6;&#x53E3;&#x65F6;&#x52A0;&#x8F7D;&#x56FE;&#x50CF;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Image</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/image&apos;</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function"><span class="token maybe-class-name">YourComponent</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span><span class="token maybe-class-name">Image</span>
+        src<span class="token operator">=</span><span class="token string">&quot;/images/profile.jpg&quot;</span> <span class="token comment">// Route of the image file</span>
+        height<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">144</span><span class="token punctuation">}</span> <span class="token comment">// Desired size with correct aspect ratio</span>
+        width<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">144</span><span class="token punctuation">}</span> <span class="token comment">// Desired size with correct aspect ratio</span>
+        alt<span class="token operator">=</span><span class="token string">&quot;Your Name&quot;</span>
+    <span class="token operator">/</span><span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+</pre><p>&#x56FE;&#x50CF;&#x4F18;&#x5316;<br>
+<a href="https://nextjs.org/docs/basic-features/image-optimization">https://nextjs.org/docs/basic-features/image-optimization</a></p>
+<p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/docs/api-reference/next/image">https://nextjs.org/docs/api-reference/next/image</a> <a href="https://nextjs.org/learn/basics/assets-metadata-css/assets">https://nextjs.org/learn/basics/assets-metadata-css/assets</a></p>
+<h3 class="mume-header" id="nexthead">next/head</h3>
+
+<p>&#x53EF;&#x4EE5;&#x5C06;&#x5143;&#x7D20;&#x6DFB;&#x52A0;&#x5230; html &#x7684; head &#x6807;&#x7B7E;&#x5185;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">Head</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/head&apos;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">IndexPage</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token maybe-class-name">Head</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span><span class="token maybe-class-name">My</span> page title<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span>meta property<span class="token operator">=</span><span class="token string">&quot;og:title&quot;</span> content<span class="token operator">=</span><span class="token string">&quot;My page title&quot;</span> key<span class="token operator">=</span><span class="token string">&quot;title&quot;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">Head</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token maybe-class-name">Hello</span> world<span class="token operator">!</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token maybe-class-name">IndexPage</span>
+</pre><p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/docs/api-reference/next/head">https://nextjs.org/docs/api-reference/next/head</a></p>
+<h3 class="mume-header" id="nextscript">next/script</h3>
+
+<h2 class="mume-header" id="%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">&#x751F;&#x547D;&#x5468;&#x671F;</h2>
+
+<h3 class="mume-header" id="%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F">&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;</h3>
+
+<p>useEffect &#x662F;&#x4E00;&#x4E2A;&#x5185;&#x7F6E;&#x7684; React Hook&#x3002;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x4F5C;&#x4E3A;&#x7EC4;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x51FD;&#x6570;&#x3002;<br>
+&#x7528;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;react&apos;</span>
+
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x6BCF;&#x6B21;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#x90FD;&#x4F1A;&#x6267;&#x884C;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x53EA;&#x5728;&#x7EC4;&#x4EF6;&#x7B2C;&#x4E00;&#x6B21;&#x6E32;&#x67D3;&#x65F6;&#x6267;&#x884C;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x901A;&#x8FC7;&#x5C06;&#x4F9D;&#x8D56;&#x9879;&#x6570;&#x7EC4;&#x4F5C;&#x4E3A;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;useEffect&#xFF0C;useEffect&#x5C06;&#x4EC5;&#x5728;&#x4F9D;&#x8D56;&#x9879;&#x66F4;&#x6539;&#x65F6;&#x8FD0;&#x884C;&#xFF08;count&#x53D8;&#x91CF;&#x4E00;&#x65E6;&#x66F4;&#x6539;&#xFF0C;&#x5C31;&#x4F1A;&#x6267;&#x884C;&#x4E00;&#x6B21;useEffect&#x51FD;&#x6570;&#xFF0C;&#x5145;&#x5F53;watch&#xFF09;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>count<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+<span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// &#x4EC5;&#x9996;&#x6B21;&#x6E32;&#x67D3;&#x7EC4;&#x4EF6;&#x65F6;&#x6267;&#x884C;&#x4E00;&#x6B21; or &#x4F9D;&#x8D56;&#x9879;&#x53D8;&#x66F4;&#x65F6;&#x6267;&#x884C;</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// &#x5378;&#x8F7D;&#xFF08;&#x9500;&#x6BC1;&#xFF09;&#x7EC4;&#x4EF6;&#x4E4B;&#x524D;&#x6267;&#x884C;&#x3002;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>prop<span class="token punctuation">,</span> state<span class="token punctuation">]</span><span class="token punctuation">)</span>
+</pre><p>// &#x6BCF;&#x4E2A;&#x7EC4;&#x4EF6;&#x5185;&#x53EF;&#x4EE5;&#x591A;&#x6B21;&#x4F7F;&#x7528; useEffect &#x51FD;&#x6570;&#xFF0C;&#x6765;&#x8FBE;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x76EE;&#x7684;&#x3002;</p>
+<h2 class="mume-header" id="%E6%95%B0%E6%8D%AE%E4%BC%A0%E9%80%92">&#x6570;&#x636E;&#x4F20;&#x9012;</h2>
+
+<p>&#x7EC4;&#x4EF6;&#x548C;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4F20;&#x9012;&#x3002;<br>
+&#x56DB;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A; 1.&#x901A;&#x8FC7; props</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> <span class="token function-variable function"><span class="token maybe-class-name">Component</span></span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+    <span class="token comment">// You can get data from parent component.</span>
+    <span class="token keyword keyword-const">const</span> parentData <span class="token operator">=</span> props<span class="token punctuation">.</span><span class="token property-access">parentData</span>
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// Fetch Data here when component first mounted</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>2.&#x4F7F;&#x7528; React &#x7684;&#x4E0A;&#x4E0B;&#x6587;&#x4F20;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">ContainerOfTwo</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>sharedState<span class="token punctuation">,</span> setSharedState<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">useState</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token maybe-class-name">MyContext</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">Provider</span></span> value<span class="token operator">=</span><span class="token punctuation">{</span><span class="token punctuation">[</span>sharedState<span class="token punctuation">,</span> setSharedState<span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token maybe-class-name">ChildOne</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token maybe-class-name">ChildTwo</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">MyContext</span><span class="token punctuation">.</span><span class="token property-access"><span class="token maybe-class-name">Provider</span></span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>3.&#x4F7F;&#x7528;&#x72B6;&#x6001;&#x63D0;&#x5347;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">ParentComponent</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> initialState <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>sortedData<span class="token punctuation">,</span> setSortedData<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token maybe-class-name">React</span><span class="token punctuation">.</span><span class="token method function property-access">useState</span><span class="token punctuation">(</span>initialState<span class="token punctuation">)</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token maybe-class-name">ChildComponent</span> data<span class="token operator">=</span><span class="token punctuation">{</span>sortedData<span class="token punctuation">}</span> setData<span class="token operator">=</span><span class="token punctuation">{</span>setSortedData<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>4.&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#x5DE5;&#x5177;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-class">class</span> <span class="token class-name">Parent</span> <span class="token keyword keyword-extends">extends</span> <span class="token class-name">Component</span> <span class="token punctuation">{</span>
+    <span class="token function">constructor</span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-super">super</span><span class="token punctuation">(</span>props<span class="token punctuation">)</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">state</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+            products<span class="token operator">:</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function-variable function">callBackMethod</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">products</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token method function property-access">setState</span><span class="token punctuation">(</span><span class="token punctuation">{</span> products <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">render</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> products <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">state</span>
+        <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+            <span class="token operator">&lt;</span><span class="token operator">&gt;</span>
+                <span class="token operator">&lt;</span><span class="token maybe-class-name">ChildComponent</span> products<span class="token operator">=</span><span class="token punctuation">{</span>products<span class="token punctuation">}</span> callBackMethod<span class="token operator">=</span><span class="token punctuation">{</span><span class="token keyword keyword-this">this</span><span class="token punctuation">.</span><span class="token property-access">callBackMethod</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E6%95%B0%E6%8D%AE%E7%9B%91%E5%90%AC">&#x6570;&#x636E;&#x76D1;&#x542C;</h3>
+
+<p>&#x4E0E; vuejs &#x91CC;&#x7684; watch &#x529F;&#x80FD;&#x7C7B;&#x4F3C;&#xFF0C;react &#x76D1;&#x542C;&#x6570;&#x636E;&#x53D8;&#x5316;&#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">React</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> useEffect<span class="token punctuation">,</span> useState <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;react&apos;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">MyComponent</span></span><span class="token punctuation">(</span><span class="token parameter">props</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>myData<span class="token punctuation">,</span> setMyData<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token comment">// &#x8BA2;&#x9605; myData &#x6570;&#x503C;&#x53D8;&#x5316;</span>
+        myData<span class="token punctuation">.</span><span class="token method function property-access">on</span><span class="token punctuation">(</span><span class="token string">&apos;change&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            <span class="token console class-name">console</span><span class="token punctuation">.</span><span class="token method function property-access">log</span><span class="token punctuation">(</span><span class="token string">&apos;myData changed!&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+        <span class="token comment">// &#x5728;&#x7EC4;&#x4EF6;unmount&#x65F6;&#xFF0C;&#x9500;&#x6BC1;&#x8BA2;&#x9605;&#x4E8B;&#x4EF6;</span>
+        <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+            myData<span class="token punctuation">.</span><span class="token method function property-access">off</span><span class="token punctuation">(</span><span class="token string">&apos;change&apos;</span><span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span>myData<span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token maybe-class-name">My</span> <span class="token maybe-class-name">Component</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+</pre><h2 class="mume-header" id="%E6%95%B0%E6%8D%AE%E6%B8%B2%E6%9F%93">&#x6570;&#x636E;&#x6E32;&#x67D3;</h2>
+
+<h3 class="mume-header" id="%E9%A1%B5%E9%9D%A2%E7%BA%A7%E9%9D%99%E6%80%81%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E9%A1%B5%E9%9D%A2">&#x9875;&#x9762;&#x7EA7;&#xFF1A;&#x9759;&#x6001;&#x751F;&#x6210;&#xFF08;&#x9759;&#x6001;&#x9875;&#x9762;&#xFF09;</h3>
+
+<p>&#x6765;&#x6E90;&#xFF1A;</p>
+<h3 class="mume-header" id="%E9%A1%B5%E9%9D%A2%E7%BA%A7%E5%8A%A8%E6%80%81%E6%B8%B2%E6%9F%93%E6%9C%8D%E5%8A%A1%E7%AB%AF%E6%B8%B2%E6%9F%93%E9%A1%B5%E9%9D%A2">&#x9875;&#x9762;&#x7EA7;&#xFF1A;&#x52A8;&#x6001;&#x6E32;&#x67D3;&#xFF08;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x9875;&#x9762;&#xFF09;</h3>
+
+<p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props">https://nextjs.org/docs/basic-features/data-fetching/get-server-side-props</a></p>
+<p>&#x7EC4;&#x4EF6;&#x7EA7;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;&#xFF08;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x901A;&#x8FC7; JS &#x52A8;&#x6001;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF09;<br>
+&#x5728;&#x81EA;&#x5DF1;&#x5C01;&#x88C5;&#x7684;&#x7EC4;&#x4EF6;&#x4E2D;&#x83B7;&#x53D6;&#x540E;&#x7AEF;&#x6570;&#x636E;&#xFF0C;&#x53EA;&#x80FD;&#x901A;&#x8FC7;&#x4E0B;&#x5217; 2 &#x79CD;&#x65B9;&#x5F0F;&#xFF1A;<br>
+&#x4F7F;&#x7528; useEffect &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;react&apos;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Profile</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>data<span class="token punctuation">,</span> setData<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token keyword null nil keyword-null">null</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>isLoading<span class="token punctuation">,</span> setLoading<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span>
+        <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&apos;/api/profile-data&apos;</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+            <span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">data</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+                <span class="token function">setData</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+                <span class="token function">setLoading</span><span class="token punctuation">(</span><span class="token boolean">false</span><span class="token punctuation">)</span>
+            <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>isLoading<span class="token punctuation">)</span> <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token maybe-class-name">Loading</span><span class="token spread operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token maybe-class-name">No</span> profile data<span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token punctuation">{</span>data<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>data<span class="token punctuation">.</span><span class="token property-access">bio</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E4%BD%BF%E7%94%A8-swr-%E8%8E%B7%E5%8F%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%95%B0%E6%8D%AE-%E5%BC%BA%E7%83%88%E5%BB%BA%E8%AE%AE">&#x4F7F;&#x7528; SWR &#x83B7;&#x53D6;&#x5BA2;&#x6237;&#x7AEF;&#x6570;&#x636E; &#xFF08;&#x5F3A;&#x70C8;&#x5EFA;&#x8BAE;&#xFF09;</h3>
+
+<p>SWR &#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7F13;&#x5B58;&#x3001;&#x91CD;&#x65B0;&#x9A8C;&#x8BC1;&#x3001;&#x7126;&#x70B9;&#x8DDF;&#x8E2A;&#x3001;&#x6309;&#x65F6;&#x95F4;&#x95F4;&#x9694;&#x91CD;&#x65B0;&#x83B7;&#x53D6;&#x7B49;&#x7B49;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports">useSWR</span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;swr&apos;</span>
+
+<span class="token keyword keyword-const">const</span> <span class="token function-variable function">fetcher</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter"><span class="token spread operator">...</span>args</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token spread operator">...</span>args<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token method function property-access">then</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">res</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Profile</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> data<span class="token punctuation">,</span> error <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">useSWR</span><span class="token punctuation">(</span><span class="token string">&apos;/api/profile-data&apos;</span><span class="token punctuation">,</span> fetcher<span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span>error<span class="token punctuation">)</span> <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token maybe-class-name">Failed</span> to load<span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token keyword control-flow keyword-if">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>data<span class="token punctuation">)</span> <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span><span class="token maybe-class-name">Loading</span><span class="token spread operator">...</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token punctuation">{</span>data<span class="token punctuation">.</span><span class="token property-access">name</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>data<span class="token punctuation">.</span><span class="token property-access">bio</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/docs/basic-features/data-fetching/client-side">https://nextjs.org/docs/basic-features/data-fetching/client-side</a></p>
+<h3 class="mume-header" id="%E5%A2%9E%E9%87%8F%E9%9D%99%E6%80%81%E5%86%8D%E7%94%9F%E6%88%90%E5%8A%A8%E6%80%81%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E9%A1%B5">&#x589E;&#x91CF;&#x9759;&#x6001;&#x518D;&#x751F;&#x6210;&#xFF1A;&#x52A8;&#x6001;&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;</h3>
+
+<p>&#x5F53;&#x5BF9;&#x4E00;&#x4E2A;&#x5728;&#x6784;&#x5EFA;&#x65F6;&#x5DF2;&#x9884;&#x6E32;&#x67D3;&#x7684;&#x9875;&#x9762;&#x63D0;&#x51FA;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;&#x5B83;&#x6700;&#x521D;&#x5C06;&#x663E;&#x793A;&#x7F13;&#x5B58;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<ul>
+<li>&#x5728;&#x6700;&#x521D;&#x7684;&#x8BF7;&#x6C42;&#x4E4B;&#x540E;&#x548C; 10 &#x79D2;&#x4E4B;&#x524D;&#xFF0C;&#x4EFB;&#x4F55;&#x5BF9;&#x8BE5;&#x9875;&#x9762;&#x7684;&#x8BF7;&#x6C42;&#x90FD;&#x662F;&#x7F13;&#x5B58;&#x4E14;&#x5373;&#x65F6;&#x7684;</li>
+<li>&#x5728; 10 &#x79D2;&#x4E4B;&#x540E;&#xFF0C;&#x4E0B;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x4ECD;&#x7136;&#x4F1A;&#x663E;&#x793A;&#x7F13;&#x5B58;&#x7684;&#xFF08;&#x9648;&#x65E7;&#x7684;&#xFF09;&#x9875;&#x9762;</li>
+<li>Next.js &#x4F1A;&#x5728;&#x540E;&#x53F0;&#x89E6;&#x53D1;&#x9875;&#x9762;&#x7684;&#x518D;&#x751F;&#xFF08;regeneration&#xFF09;</li>
+<li>&#x4E00;&#x65E6;&#x9875;&#x9762;&#x518D;&#x751F;&#x6210;&#x529F;&#xFF0C;Next.js &#x5C06;&#x4F7F;&#x7F13;&#x5B58;&#x5931;&#x6548;&#x5E76;&#x663E;&#x793A;&#x66F4;&#x65B0;&#x7684;&#x9875;&#x9762;&#xFF1B;&#x5982;&#x679C;&#x540E;&#x53F0;&#x518D;&#x751F;&#x5931;&#x8D25;&#xFF0C;&#x65E7;&#x7684;&#x9875;&#x9762;&#x4E0D;&#x4F1A;&#x88AB;&#x6539;&#x53D8;</li>
+</ul>
+<p>&#x5F53;&#x5BF9;&#x4E00;&#x4E2A;&#x5C1A;&#x672A;&#x751F;&#x6210;&#x7684;&#x8DEF;&#x5F84;&#x63D0;&#x51FA;&#x8BF7;&#x6C42;&#x65F6;&#xFF0C;Next.js &#x5C06;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x8BF7;&#x6C42;&#x4E2D;&#x5BF9;&#x9875;&#x9762;&#x8FDB;&#x884C;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#xFF0C;&#x4E4B;&#x540E;&#x7684;&#x8BF7;&#x6C42;&#x5C06;&#x4ECE;&#x7F13;&#x5B58;&#x4E2D;&#x63D0;&#x4F9B;&#x9759;&#x6001;&#x6587;&#x4EF6;&#x3002;</p>
+<p>&#x7B2C;&#x4E00;&#x6B65;&#xFF1A;&#x914D;&#x7F6E;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#x9762;&#x65F6;&#x95F4;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">getStaticProps</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> res <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.example.com/data&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> data <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>
+        props<span class="token operator">:</span> <span class="token punctuation">{</span>
+            data<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        revalidate<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// 10s&#x540E;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x9759;&#x6001;&#x9759;&#x6001;&#x9875;&#x9762;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7B2C;&#x4E8C;&#x6B65;&#xFF1A;&#x4F7F;&#x7528; useEffect &#x94A9;&#x5B50;&#x83B7;&#x53D6;&#x6570;&#x636E;&#x3002;&#x5F53;&#x9875;&#x9762;&#x88AB;&#x8BBF;&#x95EE;&#x65F6;&#xFF0C;&#x5F53;&#x524D;&#x9875;&#x9762;&#x62FF;&#x5230;&#x7684;&#x662F;&#x6700;&#x65B0;&#x6570;&#x636E;&#xFF0C;&#x540C;&#x65F6; nextjs &#x4F1A;&#x5728;&#x540E;&#x53F0;&#x6309;&#x7167; revalidate &#x6307;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#xFF0C;&#x5F02;&#x6B65;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x5F53;&#x524D;&#x9875;&#x9762;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> useState<span class="token punctuation">,</span> useEffect <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;react&apos;</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">MyPage</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> data <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">[</span>latestData<span class="token punctuation">,</span> setLatestData<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">useState</span><span class="token punctuation">(</span>data<span class="token punctuation">)</span>
+
+    <span class="token function">useEffect</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">{</span>
+        <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">fetchLatestData</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword keyword-const">const</span> res <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.example.com/data&apos;</span><span class="token punctuation">)</span>
+            <span class="token keyword keyword-const">const</span> latestData <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token function">setLatestData</span><span class="token punctuation">(</span>latestData<span class="token punctuation">)</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword keyword-const">const</span> intervalId <span class="token operator">=</span> <span class="token function">setInterval</span><span class="token punctuation">(</span>fetchLatestData<span class="token punctuation">,</span> <span class="token number">10000</span><span class="token punctuation">)</span> <span class="token comment">// fetch new data every 10 seconds</span>
+        <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token function">clearInterval</span><span class="token punctuation">(</span>intervalId<span class="token punctuation">)</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token punctuation">]</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token maybe-class-name">My</span> <span class="token maybe-class-name">Page</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>latestData<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x7B2C;&#x4E09;&#x6B65;&#xFF1A;&#x5982;&#x679C;&#x9875;&#x9762;&#x4F7F;&#x7528;&#x4E86;&#x52A8;&#x6001;&#x8DEF;&#x7531;&#xFF0C;&#x9700;&#x8981;&#x7528; getStaticPaths &#x51FD;&#x6570;&#x6765;&#x6307;&#x5B9A;&#x9700;&#x8981;&#x9884;&#x6E32;&#x67D3;&#x7684;&#x9875;&#x9762;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">getStaticPaths</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> res <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token string">&apos;https://api.example.com/posts&apos;</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> posts <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword keyword-const">const</span> paths <span class="token operator">=</span> posts<span class="token punctuation">.</span><span class="token method function property-access">map</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">post</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+        params<span class="token operator">:</span> <span class="token punctuation">{</span> id<span class="token operator">:</span> post<span class="token punctuation">.</span><span class="token property-access">id</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>
+        paths<span class="token punctuation">,</span>
+        fallback<span class="token operator">:</span> <span class="token string">&apos;blocking&apos;</span><span class="token punctuation">,</span> <span class="token comment">// &#x52A8;&#x6001;&#x8DEF;&#x5F84;&#x4E0D;&#x4F1A;&#x63D0;&#x524D;&#x6E32;&#x67D3;&#x9759;&#x6001;&#x9875;&#x9762;&#xFF0C;&#x4F1A;&#x5728;&#x7528;&#x6237;&#x8BBF;&#x95EE;&#x7684;&#x4E00;&#x77AC;&#x95F4;&#xFF0C;&#x540C;&#x65F6;&#x751F;&#x6210;&#x9759;&#x6001;&#x9875;&#xFF0C;&#x4E00;&#x65E6;&#x751F;&#x6210;&#x5B8C;&#x6210;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x628A;&#x9759;&#x6001;&#x9875;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x3002;&#x4E4B;&#x540E;&#x7684;&#x7528;&#x6237;&#x5982;&#x679C;&#x518D;&#x6B21;&#x8BBF;&#x95EE;&#x5F53;&#x524D;&#x8DEF;&#x5F84;&#xFF0C;&#x4F1A;&#x76F4;&#x63A5;&#x628A;&#x5DF2;&#x7ECF;&#x751F;&#x6210;&#x8FC7;&#x7684;&#x9759;&#x6001;&#x9875;&#x9762;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;&#x3002;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-async">async</span> <span class="token keyword keyword-function">function</span> <span class="token function">getStaticProps</span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> params <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> res <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://api.example.com/posts/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>params<span class="token punctuation">.</span><span class="token property-access">id</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> post <span class="token operator">=</span> <span class="token keyword control-flow keyword-await">await</span> res<span class="token punctuation">.</span><span class="token method function property-access">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">{</span>
+        props<span class="token operator">:</span> <span class="token punctuation">{</span>
+            post<span class="token punctuation">,</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        revalidate<span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token comment">// &#x5F53;&#x524D;&#x9875;&#x9762;&#x4E00;&#x65E6;&#x88AB;&#x8BBF;&#x95EE;&#xFF0C;&#x4F1A;&#x5728;10s&#x4E4B;&#x540E;&#x91CD;&#x65B0;&#x751F;&#x6210;&#x5F53;&#x524D;&#x9875;&#x3002;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Post</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> post <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>h1<span class="token operator">&gt;</span><span class="token punctuation">{</span>post<span class="token punctuation">.</span><span class="token property-access">title</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>h1<span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span>p<span class="token operator">&gt;</span><span class="token punctuation">{</span>post<span class="token punctuation">.</span><span class="token property-access">content</span><span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>p<span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="%E6%B8%B2%E6%9F%93-html%E6%96%87%E7%AB%A0%E5%86%85%E5%AE%B9">&#x6E32;&#x67D3; HTML(&#x6587;&#x7AE0;&#x5185;&#x5BB9;)</h3>
+
+<p>&#x4E0E; vuejs &#x7684; v-html &#x529F;&#x80FD;&#x7C7B;&#x4F3C;.react &#x6E32;&#x67D3; HTML &#x7684;&#x65B9;&#x6CD5;&#x5982;&#x4E0B;&#xFF1A;<br>
+<code>&lt;div dangerouslySetInnerHTML={{ __html: post.content }}&gt;&lt;/div&gt;</code><br>
+post.content &#x662F;&#x8981;&#x6E32;&#x67D3;&#x7684;&#x5B57;&#x6BB5;&#x3002;</p>
+<h2 class="mume-header" id="%E8%B7%AF%E7%94%B1%E9%85%8D%E7%BD%AE">&#x8DEF;&#x7531;&#x914D;&#x7F6E;</h2>
+
+<h3 class="mume-header" id="%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1">&#x52A8;&#x6001;&#x8DEF;&#x7531;</h3>
+
+<p>&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#x5C31;&#x662F;&#x8DEF;&#x7531;&#xFF0C;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5C31;&#x7B49;&#x4E8E;&#x521B;&#x5EFA;&#x4E86;&#x8DEF;&#x7531;&#x3002;<br>
+&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x5728;/pages &#x76EE;&#x5F55;&#x4E0B;&#x65B0;&#x5EFA;&#x6587;&#x4EF6;:<br>
+<code>/pages/index.js</code> &#x6307;&#x5411; <code>http://localhost:3000/</code><br>
+<code>/pages/about.js</code> &#x6307;&#x5411; <code>http://localhost:3000/about</code><br>
+<code>/pages/report/index.js</code> &#x6307;&#x5411; <code>http://localhost:3000/report</code><br>
+<code>/pages/report/list.js</code> &#x6307;&#x5411; <code>http://localhost:3000/report/list</code><br>
+<code>/pages/report/[id].js</code> &#x6307;&#x5411; <code>[http://localhost:3000/report/123 &#x6216; http://localhost:3000/report/abc]</code></p>
+<p>&#x6765;&#x6E90;&#xFF1A;<a href="https://nextjs.org/learn/basics/navigate-between-pages/pages-in-nextjs">https://nextjs.org/learn/basics/navigate-between-pages/pages-in-nextjs</a></p>
+<h3 class="mume-header" id="%E8%B7%AF%E7%94%B1%E5%AF%B9%E8%B1%A1">&#x8DEF;&#x7531;&#x5BF9;&#x8C61;</h3>
+
+<p>&#x901A;&#x8FC7;&#x8DEF;&#x7531;&#x5BF9;&#x8C61;&#x83B7;&#x53D6;&#x5F53;&#x524D;&#x9875;&#x9762;&#x8DEF;&#x7531;&#x53C2;&#x6570;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> useRouter <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;next/router&apos;</span>
+
+<span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">Report</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword keyword-const">const</span> router <span class="token operator">=</span> <span class="token function">useRouter</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+    <span class="token keyword keyword-const">const</span> <span class="token punctuation">{</span> id <span class="token punctuation">}</span> <span class="token operator">=</span> router<span class="token punctuation">.</span><span class="token property-access">query</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token operator">&lt;</span>div<span class="token operator">&gt;</span>&#x62A5;&#x544A;&#x8BE6;&#x60C5;&#x9875;<span class="token operator">:</span> <span class="token punctuation">{</span>id<span class="token punctuation">}</span><span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token maybe-class-name">Report</span>
+</pre><h3 class="mume-header" id="api-%E8%B7%AF%E7%94%B1">API &#x8DEF;&#x7531;</h3>
+
+<p>&#x6682;&#x65F6;&#x7528;&#x4E0D;&#x5230;&#x3002;</p>
+<h2 class="mume-header" id="%E5%BC%80%E5%8F%91%E9%83%A8%E7%BD%B2">&#x5F00;&#x53D1;&#x90E8;&#x7F72;</h2>
+
+<p>&#x521B;&#x5EFA; Next.js &#x5E94;&#x7528;&#x7A0B;&#x5E8F;<br>
+npx create-next-app@latest project-name --use-npm --example &quot;<a href="https://github.com/vercel/next-learn/tree/master/basics/learn-starter">https://github.com/vercel/next-learn/tree/master/basics/learn-starter</a>&quot;</p>
+<h3 class="mume-header" id="%E9%85%8D%E7%BD%AE%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F">&#x914D;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</h3>
+
+<p>&#x65E0;&#x9700;&#x4E0B;&#x8F7D; cross-env &#x63D2;&#x4EF6;&#xFF0C;nextjs &#x5185;&#x7F6E;&#x5BF9;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x914D;&#x7F6E;&#x6587;&#x4EF6;&#x7684;&#x652F;&#x6301;&#x3002;&#x76F4;&#x63A5;&#x521B;&#x5EFA;&#x6587;&#x4EF6;&#x5373;&#x53EF;&#x3002;<br>
+&#x5F00;&#x53D1;&#x73AF;&#x5883;&#x521B;&#x5EFA;.env.development.local &#x6587;&#x4EF6;&#xFF1B;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#x521B;&#x5EFA;.env.production.local &#x6587;&#x4EF6;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"># <span class="token punctuation">.</span><span class="token property-access">env</span><span class="token punctuation">.</span><span class="token property-access">development</span><span class="token punctuation">.</span><span class="token property-access">local</span> &#x6587;&#x4EF6;&#x5185;&#x5199;&#x5165;
+<span class="token constant">NODE_ENV</span><span class="token operator">=</span>development
+<span class="token constant">BASE_URL</span><span class="token operator">=</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>api2<span class="token punctuation">.</span><span class="token property-access">chooseauto</span><span class="token punctuation">.</span><span class="token property-access">com</span>
+
+# <span class="token punctuation">.</span><span class="token property-access">env</span><span class="token punctuation">.</span><span class="token property-access">production</span><span class="token punctuation">.</span><span class="token property-access">local</span> &#x6587;&#x4EF6;&#x5185;&#x5199;&#x5165;
+<span class="token constant">NODE_ENV</span><span class="token operator">=</span>production
+<span class="token constant">BASE_URL</span><span class="token operator">=</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>api<span class="token punctuation">.</span><span class="token property-access">chooseauto</span><span class="token punctuation">.</span><span class="token property-access">com</span>
+</pre><p>&#x6839;&#x636E;&#x914D;&#x7F6E;&#x597D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x5728;&#x4EE3;&#x7801;&#x4E2D;&#x901A;&#x8FC7; process.env.&#x53D8;&#x91CF;&#x540D;&#x7684;&#x65B9;&#x5F0F;&#x5F15;&#x5165;&#x53D8;&#x91CF;&#x3002;<br>
+nextjs &#x5728;&#x6267;&#x884C; npm run dev &#x65F6;&#xFF0C;process.env.NODE<em>ENV=development&#xFF1B;<br>
+nextjs &#x5728;&#x6267;&#x884C; npm run start &#x65F6;&#xFF0C;process.env.NODE_ENV=production&#x3002;<br>
+&#x6839;&#x636E;&#x8FD9;&#x4E2A;&#x7279;&#x6027;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x73AF;&#x5883;&#xFF0C;&#x4E0D;&#x540C;&#x914D;&#x7F6E;&#x3002;<br>
+&#x6CE8;&#x610F;&#xFF1A;&#x914D;&#x7F6E;&#x597D;&#x7684;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x9ED8;&#x8BA4;&#x53EA;&#x80FD;&#x5728; node &#x73AF;&#x5883;&#x4E0B;&#x88AB;&#x8BFB;&#x53D6;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x5728; node &#x7AEF;&#x548C;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x8BFB;&#x53D6;&#x540C;&#x4E00;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#xFF0C;&#x9700;&#x8981;&#x6DFB;&#x52A0; NEXT_PUBLIC</em>&#x524D;&#x7F00;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"># <span class="token punctuation">.</span><span class="token property-access">env</span><span class="token punctuation">.</span><span class="token property-access">production</span><span class="token punctuation">.</span><span class="token property-access">local</span>
+<span class="token constant">NEXT_PUBLIC_SEARCH_URL</span><span class="token operator">=</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>it<span class="token punctuation">.</span><span class="token property-access">chooseauto</span><span class="token punctuation">.</span><span class="token property-access">com</span><span class="token punctuation">.</span><span class="token property-access">cn</span>
+# &#x8FD9;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x65E2;&#x53EF;&#x4EE5;&#x5728;node&#x7AEF;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x88AB;&#x4F7F;&#x7528;
+<span class="token constant">SEARCH_URL</span><span class="token operator">=</span>https<span class="token operator">:</span><span class="token operator">/</span><span class="token operator">/</span>it<span class="token punctuation">.</span><span class="token property-access">chooseauto</span><span class="token punctuation">.</span><span class="token property-access">com</span><span class="token punctuation">.</span><span class="token property-access">cn</span>
+# &#x8FD9;&#x4E2A;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x5728;node&#x7AEF;&#x88AB;&#x4F7F;&#x7528;&#xFF0C;&#x6D4F;&#x89C8;&#x5668;&#x7AEF;&#x4F1A;&#x8FD4;&#x56DE;<span class="token keyword nil keyword-undefined">undefined</span>
+</pre><h3 class="mume-header" id="%E5%90%AF%E5%8A%A8%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">&#x542F;&#x52A8;&#x9879;&#x76EE;&#xFF08;&#x5F00;&#x53D1;&#x73AF;&#x5883;&#xFF09;</h3>
+
+<p><code>npm run dev</code></p>
+<h3 class="mume-header" id="%E6%9E%84%E5%BB%BA%E9%A1%B9%E7%9B%AE%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83">&#x6784;&#x5EFA;&#x9879;&#x76EE;&#xFF08;&#x751F;&#x4EA7;&#x73AF;&#x5883;&#xFF09;</h3>
+
+<p>&#x4F1A;&#x6839;&#x636E;&#x4EE3;&#x7801;&#x903B;&#x8F91;&#x63D0;&#x524D;&#x751F;&#x6210;&#x4E00;&#x90E8;&#x5206;&#x9759;&#x6001;&#x9875;&#x9762;&#x6216;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x9875;&#x9762;<br>
+<code>npm run build</code></p>
+<h3 class="mume-header" id="%E5%90%AF%E5%8A%A8-node-%E6%9C%8D%E5%8A%A1%E5%99%A8">&#x542F;&#x52A8; Node &#x670D;&#x52A1;&#x5668;</h3>
+
+<p>&#x4E3A;&#x9759;&#x6001;&#x751F;&#x6210;&#x7684;&#x9875;&#x9762;&#x548C;&#x670D;&#x52A1;&#x7AEF;&#x6E32;&#x67D3;&#x7684;&#x9875;&#x9762;&#x63D0;&#x4F9B;&#x670D;&#x52A1;<br>
+<code>npm run start</code></p>
+<p>&#x4E5F;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49; Node &#x670D;&#x52A1;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x53EA;&#x8981;&#x4FEE;&#x6539; package.json<br>
+<code>&quot;start&quot;: &quot;next start -p 9999&quot;</code></p>
+<p>&#x8FD9;&#x6837;&#xFF0C;Node &#x670D;&#x52A1;&#x5C31;&#x4F1A;&#x4EE5; 9999 &#x4E3A;&#x7AEF;&#x53E3;&#x53F7;&#x8FDB;&#x884C;&#x542F;&#x52A8;:<a href="http://localhost:9999">http://localhost:9999</a></p>
+<h2 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E9%85%8D%E7%BD%AE">&#x9879;&#x76EE;&#x914D;&#x7F6E;</h2>
+
+<h3 class="mume-header" id="css-%E5%85%BC%E5%AE%B9-ie11">CSS &#x517C;&#x5BB9; IE11</h3>
+
+<p>nextjs &#x5185;&#x7F6E; <code>autoprefixer</code>&#xFF0C;&#x4F46;&#x9700;&#x8981;&#x624B;&#x52A8;&#x914D;&#x7F6E;&#x540E;&#x624D;&#x80FD;&#x751F;&#x6548;&#x3002;<br>
+&#x6253;&#x5F00; <code>package.json</code> &#x6587;&#x4EF6;&#xFF0C;&#x6DFB;&#x52A0; <code>browserslist</code> &#x5B57;&#x6BB5;&#xFF1A;</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;private&quot;</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;scripts&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token property">&quot;dev&quot;</span><span class="token operator">:</span> <span class="token string">&quot;next dev&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;build&quot;</span><span class="token operator">:</span> <span class="token string">&quot;next build&quot;</span><span class="token punctuation">,</span>
+        <span class="token property">&quot;start&quot;</span><span class="token operator">:</span> <span class="token string">&quot;next start&quot;</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;browserslist&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;last 2 versions&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;not ie &lt; 11&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;not op_mini all&quot;</span><span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x4E4B;&#x540E;&#x518D;&#x6B21;&#x8FD0;&#x884C; <code>npm run build</code> &#x547D;&#x4EE4;&#xFF0C;nextjs &#x4F1A;&#x81EA;&#x52A8;&#x5C06; css &#x7684;&#x4EE3;&#x7801;&#x8FDB;&#x884C; <code>autoprefixer</code>&#xFF0C;&#x517C;&#x5BB9; IE&#x3002;</p>
+<h3 class="mume-header" id="%E9%A1%B9%E7%9B%AE%E5%85%BC%E5%AE%B9-ie11">&#x9879;&#x76EE;&#x517C;&#x5BB9; IE11</h3>
+
+<p>&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x6700;&#x65B0; js &#x8BED;&#x6CD5;&#xFF0C;&#x6253;&#x5305;&#x540E;&#x53EF;&#x4EE5;&#x517C;&#x5BB9; IE11<br>
+&#x9879;&#x76EE;&#x6839;&#x76EE;&#x5F55;&#x521B;&#x5EFA;<code>.babelrc</code> &#x6587;&#x4EF6;</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;presets&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">[</span>
+            <span class="token string">&quot;next/babel&quot;</span><span class="token punctuation">,</span>
+            <span class="token punctuation">{</span>
+                <span class="token property">&quot;preset-env&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                    <span class="token property">&quot;useBuiltIns&quot;</span><span class="token operator">:</span> <span class="token string">&quot;usage&quot;</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;modules&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;debug&quot;</span><span class="token operator">:</span> <span class="token boolean">false</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;corejs&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+                    <span class="token property">&quot;targets&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                        <span class="token property">&quot;browsers&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">&quot;last 2 versions&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;ie &gt;= 11&quot;</span><span class="token punctuation">]</span>
+                    <span class="token punctuation">}</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">]</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><p>&#x5B89;&#x88C5; core-js<br>
+<code>npm install core-js --save-dev</code></p>
+<p>&#x91CD;&#x542F;&#x9879;&#x76EE;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x8FDB;&#x884C;<br>
+<code>npm run dev</code></p>
+<p>&#x6253;&#x5305;&#x8FC7;&#x7A0B;&#xFF0C;&#x4F1A;&#x628A; es6 &#x8F6C;&#x6210; es5&#xFF0C;&#x5B8C;&#x6210;&#x5BF9; IE11 &#x7684;&#x652F;&#x6301;<br>
+<code>npm run build</code></p>
+<h3 class="mume-header" id="antd-%E5%85%BC%E5%AE%B9-ie11">Antd &#x517C;&#x5BB9; IE11</h3>
+
+<p>antd 5 &#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x652F;&#x6301; IE &#x6D4F;&#x89C8;&#x5668;&#xFF0C;&#x901A;&#x8FC7;&#x67E5;&#x9605;&#x8D44;&#x6599;&#x4EE5;&#x53CA;&#x5C1D;&#x8BD5;&#xFF0C;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x66F4;&#x597D;&#x7684;&#x529E;&#x6CD5;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x7248;&#x672C;&#x4E0A;&#x505A;&#x964D;&#x7EA7;&#x5904;&#x7406;&#xFF0C;&#x4ECE; v5 &#x964D;&#x5230; v4&#x3002;<br>
+v4 &#x6587;&#x6863;&#x5730;&#x5740;&#xFF1A;<a href="https://4x.ant.design/components/overview-cn/">https://4x.ant.design/components/overview-cn/</a><br>
+&#x5B89;&#x88C5; antd v4<br>
+<code>npm install antd@4</code></p>
+<p>_app.js &#x4E2D;&#x5F15;&#x5165;&#x6837;&#x5F0F;<br>
+<code>import &apos;antd/dist/antd.css&apos;</code>;</p>
+<h3 class="mume-header" id="antd-%E6%B1%89%E5%8C%96">Antd &#x6C49;&#x5316;</h3>
+
+<p>antd &#x9ED8;&#x8BA4;&#x662F;&#x82F1;&#x6587;&#x7248;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x6C49;&#x5316;&#x914D;&#x7F6E;&#x3002;&#x4F46;&#x914D;&#x7F6E;&#x540E;&#x53EA;&#x505A;&#x5230;&#x4E86;&#x90E8;&#x5206;&#x6C49;&#x5316;&#xFF0C;&#x65E5;&#x671F;&#x63D2;&#x4EF6;&#x6C49;&#x5316;&#x9700;&#x8981;&#x989D;&#x5916;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x3002;<br>
+antd &#x65E5;&#x671F;&#x9009;&#x62E9;&#x5668;&#x6C49;&#x5316;&#x5FC5;&#x987B;&#x5F15;&#x5165; moment &#x4E2D;&#x6587;&#x3002;<br>
+&#x5728;_app.js &#x4E2D;&#x8FDB;&#x884C;&#x6C49;&#x5316;&#x914D;&#x7F6E;&#x3002;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword module keyword-import">import</span> <span class="token string">&apos;../styles/globals.css&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token string">&apos;antd/dist/antd.css&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports">zhCN</span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;antd/lib/locale/zh_CN&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token punctuation">{</span> <span class="token maybe-class-name">ConfigProvider</span> <span class="token punctuation">}</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">&apos;antd&apos;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token string">&apos;moment/locale/zh-cn&apos;</span>
+<span class="token keyword module keyword-export">export</span> <span class="token keyword module keyword-default">default</span> <span class="token keyword keyword-function">function</span> <span class="token function"><span class="token maybe-class-name">App</span></span><span class="token punctuation">(</span><span class="token parameter"><span class="token punctuation">{</span> <span class="token maybe-class-name">Component</span><span class="token punctuation">,</span> pageProps <span class="token punctuation">}</span></span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword control-flow keyword-return">return</span> <span class="token punctuation">(</span>
+        <span class="token operator">&lt;</span><span class="token maybe-class-name">ConfigProvider</span> locale<span class="token operator">=</span><span class="token punctuation">{</span>zhCN<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+            <span class="token operator">&lt;</span><span class="token maybe-class-name">Component</span> <span class="token punctuation">{</span><span class="token spread operator">...</span>pageProps<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+        <span class="token operator">&lt;</span><span class="token operator">/</span><span class="token maybe-class-name">ConfigProvider</span><span class="token operator">&gt;</span>
+    <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</pre><h3 class="mume-header" id="antd-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE">Antd &#x4E3B;&#x9898;&#x914D;&#x7F6E;</h3>
+
+<p>antd v4 &#x4F7F;&#x7528; less &#x5F00;&#x53D1;&#xFF0C;&#x4F46; nextjs &#x9ED8;&#x8BA4;&#x53EA;&#x652F;&#x6301; sass&#x3002;<br>
+&#x6240;&#x4EE5;&#x8981;&#x5148;&#x5B89;&#x88C5; next-with-less &#x63D2;&#x4EF6;&#xFF1A;<br>
+<code>npm install next-with-less --save-dev</code></p>
+<p>next.config.js &#x4E2D;&#x5199;&#x5165;</p>
+<pre data-role="codeBlock" data-info="js" class="language-javascript"><span class="token keyword keyword-const">const</span> withLess <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;next-with-less&apos;</span><span class="token punctuation">)</span>
+<span class="token keyword keyword-const">const</span> path <span class="token operator">=</span> <span class="token function">require</span><span class="token punctuation">(</span><span class="token string">&apos;path&apos;</span><span class="token punctuation">)</span>
+
+<span class="token keyword keyword-const">const</span> antd_custom_theme <span class="token operator">=</span> path<span class="token punctuation">.</span><span class="token method function property-access">resolve</span><span class="token punctuation">(</span>__dirname<span class="token punctuation">,</span> <span class="token string">&apos;./styles/antd-custom-theme.less&apos;</span><span class="token punctuation">)</span>
+
+module<span class="token punctuation">.</span><span class="token property-access">exports</span> <span class="token operator">=</span> <span class="token function">withLess</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    lessLoaderOptions<span class="token operator">:</span> <span class="token punctuation">{</span>
+        <span class="token function-variable function">additionalData</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token parameter">content</span><span class="token punctuation">)</span> <span class="token arrow operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>content<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">\n\n@import &apos;</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>antd_custom_theme<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">&apos;;</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token comment">// next.config.js&#x7684;&#x5176;&#x4ED6;&#x914D;&#x7F6E;&#x9879;&#x76F4;&#x63A5;&#x4ECE;&#x8FD9;&#x4E2A;&#x4F4D;&#x7F6E;&#x5F80;&#x4E0B;&#x5199;</span>
+    <span class="token spread operator">...</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+root<span class="token operator">/</span>styles<span class="token operator">/</span>antd<span class="token operator">-</span>custom<span class="token operator">-</span>theme<span class="token punctuation">.</span><span class="token property-access">less&#x4E2D;&#x8FDB;&#x884C;&#x81EA;&#x5B9A;&#x4E49;&#x4E3B;&#x9898;&#x914D;&#x7F6E;&#x3002;</span>
+</pre>
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
